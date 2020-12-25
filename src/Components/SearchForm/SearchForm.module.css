@@ -1,0 +1,52 @@
+.form {
+  padding: 15px 0;
+  margin-right: 15px;
+}
+
+.label {
+  position: relative;
+}
+
+.icon {
+  /* position: absolute; */
+  width: 18px;
+  height: 18px;
+  fill: black;
+  /* transform: translateY(-50%); */
+}
+
+.input {
+  margin: 0 auto;
+  padding-left: 25px;
+
+  height: 20px;
+  border-radius: 4px;
+}
+.input:hover,
+.input:focus {
+  outline: none;
+  border: 2px solid var(--primary-color);
+}
+
+.button {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+
+  padding: 2px;
+  background-color: transparent;
+  border: none;
+}
+
+.button:hover,
+.button:focus {
+  outline: none;
+}
+
+.input:hover ~ .button > .icon,
+.input:focus ~ .button > .icon,
+.button:hover .icon,
+.button:focus .icon {
+  outline: none;
+  fill: var(--primary-color);
+}

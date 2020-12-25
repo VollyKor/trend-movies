@@ -1,6 +1,12 @@
-.list {
-  margin: 10px 0px;
+.header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list {
+  display: flex;
+  /* margin-right: auto; */
 }
 .item {
   text-align: center;

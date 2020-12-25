@@ -1,0 +1,20 @@
+.list {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 2vw;
+}
+
+.item {
+  margin: 0 auto;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.link:focus,
+.link:hover {
+  color: var(--primary-color);
+}

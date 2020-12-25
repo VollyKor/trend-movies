@@ -3,6 +3,15 @@
   --secondary-color: black;
 }
 
+header {
+  background-color: gray;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
 .App {
   text-align: center;
 }
@@ -45,6 +54,7 @@
 .container {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 15px;
   background-color: whitesmoke;
 }
 

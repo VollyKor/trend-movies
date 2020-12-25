@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
+import SearchForm from '../SearchForm/SearchForm';
 import s from './NavBar.module.css';
 
 export default function NavBar() {
   return (
-    <header className="header">
+    <header className={s.header}>
       <ul className={s.list}>
         <li className={s.item}>
           <NavLink
@@ -17,8 +18,7 @@ export default function NavBar() {
         </li>
         <li className={s.item}>
           <NavLink
-            to="./movies"
-            exact
+            to="/movies"
             className={s.link}
             activeClassName={s['active-link']}
           >
@@ -26,7 +26,7 @@ export default function NavBar() {
           </NavLink>
         </li>
       </ul>
-      <hr></hr>
+      <SearchForm />
     </header>
   );
 }

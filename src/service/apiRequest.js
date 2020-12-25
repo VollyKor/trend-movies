@@ -41,10 +41,9 @@ const apiRequest = {
   getTrendFilms() {
     return axios
       .get(
-        `${this.BASE_URL}/trending/movies/day?api_key=${this.API_KEY}&page=${this.page}`,
+        `${this.BASE_URL}/trending/movie/day?api_key=${this.API_KEY}&page=${this.page}`,
       )
       .then(({ data }) => {
-        console.log(data);
         return data;
       })
       .catch(err => {

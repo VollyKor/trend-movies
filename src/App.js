@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import MoviesView from './Components/Movies/MoviesView';
+import NavBar from './Components/NavBar/NavBar';
+import Container from './service/Container';
+import HomeView from './Components/Home/HomeView';
+
+// const ViewStatus = {
+//   IDLE: 'idle'
+//   PENDING: 'pending'
+//   RESOLVED: 'resolved'
+//   REJECTED: 'rejected'
+// }
 
 function App() {
+  // const [status, setStatus] = useState('idle')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <NavBar />
+      <Switch>
+        <Route path="/" exact>
+          <HomeView />
+        </Route>
+        <Route path="/movies" exact>
+          <MoviesView />
+        </Route>
+      </Switch>
+    </Container>
   );
 }
 

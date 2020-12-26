@@ -18,7 +18,7 @@ const apiRequest = {
   searchFilms(query) {
     return axios
       .get(
-        `${this.BASE_URL}/search/movies?api_key=${this.API_KEY}&query=${query}`,
+        `${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&query=${query}`,
       )
       .then(({ data }) => {
         return data;

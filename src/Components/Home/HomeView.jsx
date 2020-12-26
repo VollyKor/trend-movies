@@ -31,18 +31,7 @@ export default function HomeView() {
     return <h2>Загружаю</h2>;
   }
   if (status === 'resolved') {
-<<<<<<< Updated upstream
     return <Gallery arrayOfObjects={data.results}></Gallery>;
-=======
-    console.log(data);
-    return data.results.map(e => {
-      return (
-        <Link to={`/movies/${e.title}`} key={e.id} className={s.link}>
-          {e.title}
-        </Link>
-      );
-    });
->>>>>>> Stashed changes
   }
   return <h2>Пусто</h2>;
   // return <div>Что то пошло не так</div>;

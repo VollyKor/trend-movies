@@ -22,7 +22,7 @@ function App() {
         <Route path="/" exact>
           <HomeView />
         </Route>
-        <Route path="/movies" exact>
+        <Route path="/movies">
           <MoviesView />
         </Route>
       </Switch>

@@ -1,9 +1,5 @@
-export default function MoviesView() {
-  return (
-    <ul>
-      <li>MoviesView</li>
-      <li>2</li>
-      <li>3</li>
-    </ul>
-  );
+import Gallery from '../Gallery/Gallery';
+
+export default function MoviesView({ data }) {
+  return data && <Gallery arrayOfObjects={data.results} />;
 }

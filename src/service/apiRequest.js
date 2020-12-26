@@ -5,6 +5,7 @@ const apiRequest = {
   API_KEY: '132f2a543c82d69a556f0bb280a697a7',
   BASE_URL: 'https://api.themoviedb.org/3',
   page: 1,
+  reviewPage: 1,
 
   defaultPage() {
     this.page = 1;
@@ -42,6 +43,19 @@ const apiRequest = {
     return axios
       .get(
         `${this.BASE_URL}/trending/movie/day?api_key=${this.API_KEY}&page=${this.page}`,
+      )
+      .then(({ data }) => {
+        return data;
+      })
+      .catch(err => {
+        throw err;
+      });
+  },
+
+  getReview(id) {
+    return axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${this.API_KEY}&language=en-US&page=${this.reviewPage}`,
       )
       .then(({ data }) => {
         return data;

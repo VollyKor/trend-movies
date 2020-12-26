@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import ItemCard from './ItemCard/ItemCard';
 import s from './Gallery.module.css';
 export default function Gallery({ arrayOfObjects }) {
-  console.log(arrayOfObjects);
   return (
     <ul className={s.list}>
       {arrayOfObjects.map(e => (

@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import SearchForm from '../SearchForm/SearchForm';
 import s from './NavBar.module.css';
 
-export default function NavBar() {
+export default function NavBar({ searchQuery }) {
   return (
     <header className={s.header}>
       <ul className={s.list}>
@@ -26,7 +26,7 @@ export default function NavBar() {
           </NavLink>
         </li>
       </ul>
-      <SearchForm />
+      <SearchForm searchQuery={searchQuery} />
     </header>
   );
 }

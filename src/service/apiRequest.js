@@ -75,6 +75,14 @@ const apiRequest = {
     );
   },
 
+  getMovieCredits(id) {
+    return axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${this.API_KEY}&language=en-US`,
+      )
+      .then(({ data }) => data);
+  },
+
   getApiGenresList() {
     return axios.get(
       `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.API_KEY}&language=en-US`,

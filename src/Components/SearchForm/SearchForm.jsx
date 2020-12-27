@@ -1,19 +1,23 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { BsSearch as Icon } from 'react-icons/bs';
 import s from './SearchForm.module.css';
 
-export default function SearchForm({ searchQuery }) {
+export default function SearchForm() {
   const history = useHistory();
+  const location = useLocation();
   const [query, setQuery] = useState('');
   const [submitQuery, setSubmitQuery] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
     if (query.length > 0 && submitQuery !== query) {
-      history.push('/movies');
+      history.push({
+        ...location,
+        pathname: '/movies',
+        search: `query=${query}`,
+      });
       setSubmitQuery(query);
-      searchQuery(query);
     }
   }
   return (

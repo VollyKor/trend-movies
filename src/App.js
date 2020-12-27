@@ -1,13 +1,10 @@
 import './App.css';
-import { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import MoviesView from './Components/Movies/MoviesView';
-import NavBar from './Components/NavBar/NavBar';
-import Container from './service/Container';
-import HomeView from './Components/Home/HomeView';
-import NotFoundView from './Components/NotFoundView/NotFoundView';
-import MovieDetailView from './Components/Movies/MovieDetailView/MovieDetailView';
+import { lazy, useState, Suspense } from 'react';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import GoBackButton from './Components/Movies/GoBackButton/GoBackButton';
+import Container from './service/Container';
+import NotFoundView from './Components/NotFoundView/NotFoundView';
 import request from './service/apiRequest';
 
 // const ViewStatus = {
@@ -17,40 +14,68 @@ import request from './service/apiRequest';
 //   REJECTED: 'rejected'
 // }
 
+const MoviesView = lazy(() =>
+  import('./Components/Movies/MoviesView' /* webpackChunkName: 'MoviesView' */),
+);
+
+const HomeView = lazy(() =>
+  import('./Components/Home/HomeView' /* webpackChunkName: 'HomeView' */),
+);
+
+const MovieDetailView = lazy(() =>
+  import(
+    './Components/Movies/MovieDetailView/MovieDetailView' /* webpackChunkName: 'MovieDetailView' */
+  ),
+);
+
+const NavBar = lazy(() =>
+  import('./Components/NavBar/NavBar' /* webpackChunkName: 'NavBar' */),
+);
+
 function App() {
   // const [status, setStatus] = useState('idle')
-  const [query, setQuery] = useState('');
   const [data, setData] = useState(null);
+
+  const location = useLocation();
+
   useEffect(() => {
-    if (query !== '') {
-      request.searchFilms(query).then(data => {
+    const searchParams = new URLSearchParams(location.search).get('query');
+
+    if (searchParams !== null) {
+      request.searchFilms(searchParams).then(data => {
         setData(data);
       });
     }
-  }, [query]);
+  }, [location.search]);
 
   return (
     <Container>
-      <NavBar searchQuery={setQuery} />
+      <Suspense fallback={<div> Подождите, Загружаю...</div>}>
+        <NavBar />
+        <Switch>
+          <Route path="/" exact>
+            <HomeView />
+          </Route>
 
-      <Switch>
-        <Route path="/" exact>
-          <HomeView />
-        </Route>
+          <Route path="/movies" exact>
+            {!data && <div>пока пусто</div>}
+            {data && (
+              <>
+                <GoBackButton />
+                <MoviesView data={data} />
+              </>
+            )}
+          </Route>
 
-        <Route path="/movies" exact>
-          {!data && <div>пока пусто</div>}
-          {data && <MoviesView data={data} />}
-        </Route>
+          <Route path="/movies/:movieId">
+            <MovieDetailView />
+          </Route>
 
-        <Route path="/movies/:movieId">
-          <MovieDetailView />
-        </Route>
-
-        <Route>
-          <NotFoundView />
-        </Route>
-      </Switch>
+          <Route>
+            <NotFoundView />
+          </Route>
+        </Switch>
+      </Suspense>
     </Container>
   );
 }

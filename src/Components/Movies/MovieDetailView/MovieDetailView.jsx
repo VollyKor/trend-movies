@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import request from '../../../service/apiRequest';
 import MovieCard from '../MovieCard/MovieCard';
 import MovieAdditionalInfo from '../MovieAdditionalInfo/MovieAdditionalInfo';
+import GoBackButton from '../GoBackButton/GoBackButton';
 export default function MovieDetailView() {
   const { movieId } = useParams();
   const [data, setData] = useState({});
@@ -32,6 +33,7 @@ export default function MovieDetailView() {
   if (status === 'resolved') {
     return (
       <>
+        <GoBackButton />
         <MovieCard data={data} />
         <MovieAdditionalInfo filmData={data} />
       </>

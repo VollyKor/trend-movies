@@ -26,7 +26,7 @@ export default function NavBar({ searchQuery }) {
           </NavLink>
         </li>
       </ul>
-      <SearchForm searchQuery={searchQuery} />
+      <SearchForm />
     </header>
   );
 }

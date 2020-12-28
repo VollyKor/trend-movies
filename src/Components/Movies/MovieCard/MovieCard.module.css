@@ -1,0 +1,25 @@
+.desc {
+  margin-left: 15px;
+}
+
+.list-item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.subtitle {
+  margin-bottom: 0;
+}
+
+.release_date {
+  display: inline-block;
+  padding: 5px;
+  background-color: var(--praimary-color);
+}
+
+.span {
+  display: inline-block;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 3px;
+  background-color: var(--primary-color);
+}

@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-gap: 2vw;
+  margin-bottom: 30px;
 }
 
 .item {
@@ -17,4 +18,20 @@
 .link:focus,
 .link:hover {
   color: var(--primary-color);
+}
+
+.pagination {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.pagination > li:not(:last-child) {
+  margin-right: 15px;
+}
+
+.pag_item__active {
+  padding: 5px;
+  background-color: var(--primary-color);
 }

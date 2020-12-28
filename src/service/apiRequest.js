@@ -39,10 +39,10 @@ const apiRequest = {
       });
   },
 
-  getTrendFilms() {
+  getTrendFilms(page = 1) {
     return axios
       .get(
-        `${this.BASE_URL}/trending/movie/day?api_key=${this.API_KEY}&page=${this.page}`,
+        `${this.BASE_URL}/trending/movie/day?api_key=${this.API_KEY}&page=${page}`,
       )
       .then(({ data }) => {
         return data;

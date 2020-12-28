@@ -6,13 +6,7 @@ import GoBackButton from './Components/Movies/GoBackButton/GoBackButton';
 import Container from './service/Container';
 import NotFoundView from './Components/NotFoundView/NotFoundView';
 import request from './service/apiRequest';
-
-// const ViewStatus = {
-//   IDLE: 'idle'
-//   PENDING: 'pending'
-//   RESOLVED: 'resolved'
-//   REJECTED: 'rejected'
-// }
+import InitialDownload from './Components/InitialDownload/InitialDownload';
 
 const MoviesView = lazy(() =>
   import('./Components/Movies/MoviesView' /* webpackChunkName: 'MoviesView' */),
@@ -49,8 +43,8 @@ function App() {
   }, [location.search]);
 
   return (
-    <Container>
-      <Suspense fallback={<div> Подождите, Загружаю...</div>}>
+    <Suspense fallback={<InitialDownload />}>
+      <Container>
         <NavBar />
         <Switch>
           <Route path="/" exact>
@@ -75,8 +69,8 @@ function App() {
             <NotFoundView />
           </Route>
         </Switch>
-      </Suspense>
-    </Container>
+      </Container>
+    </Suspense>
   );
 }
 

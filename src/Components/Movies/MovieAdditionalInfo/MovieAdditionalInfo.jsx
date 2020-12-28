@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams, useRouteMatch, Route } from 'react-router-dom';
+import { NavLink, useParams, useRouteMatch, Route } from 'react-router-dom';
 import request from '../../../service/apiRequest';
 import ProductionCompanies from './ProductionCompanies/ProductionCompanies';
 import Review from './Review/Review';
@@ -25,15 +25,33 @@ export default function AdditionalMovieInfo({
   return (
     <div>
       <h3>Additional information</h3>
-      <ul>
+      <ul className="flex-box list">
         <li key={1}>
-          <Link to={`${url}/production-companies`}>Production Companies</Link>
+          <NavLink
+            to={`${url}/production-companies`}
+            className="link"
+            activeClassName="active-link"
+          >
+            Production Companies
+          </NavLink>
         </li>
         <li key={2}>
-          <Link to={`${url}/reviews`}>Reviews</Link>
+          <NavLink
+            className="link"
+            activeClassName="active-link"
+            to={`${url}/reviews`}
+          >
+            Reviews
+          </NavLink>
         </li>
         <li key={3}>
-          <Link to={`${url}/cast`}>Cast</Link>
+          <NavLink
+            className="link"
+            activeClassName="active-link"
+            to={`${url}/cast`}
+          >
+            Cast
+          </NavLink>
         </li>
       </ul>
       <Route path={`${url}/production-companies`}>
@@ -43,7 +61,7 @@ export default function AdditionalMovieInfo({
         {reviewData && <Review dataObj={reviewData} />}
       </Route>
       <Route path={`${url}/cast`}>
-        {reviewData && <ActorsList dataObj={castData} />}
+        {castData && <ActorsList dataObj={castData} />}
       </Route>
     </div>
   );

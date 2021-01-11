@@ -11,25 +11,20 @@ import InitialDownload from './Components/InitialDownload/InitialDownload';
 const MoviesView = lazy(() =>
   import('./Components/Movies/MoviesView' /* webpackChunkName: 'MoviesView' */),
 );
-
 const HomeView = lazy(() =>
   import('./Components/Home/HomeView' /* webpackChunkName: 'HomeView' */),
 );
-
 const MovieDetailView = lazy(() =>
   import(
     './Components/Movies/MovieDetailView/MovieDetailView' /* webpackChunkName: 'MovieDetailView' */
   ),
 );
-
 const NavBar = lazy(() =>
   import('./Components/NavBar/NavBar' /* webpackChunkName: 'NavBar' */),
 );
 
 function App() {
-  // const [status, setStatus] = useState('idle')
   const [data, setData] = useState(null);
-
   const location = useLocation();
 
   useEffect(() => {

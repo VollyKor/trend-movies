@@ -15,17 +15,16 @@ const apiRequest = {
     this.page = pageValue;
   },
 
-  searchFilms(query) {
-    return axios
-      .get(
+  async searchFilms(query) {
+    try {
+      const res = await axios.get(
         `${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&query=${query}`,
-      )
-      .then(({ data }) => {
-        return data;
-      })
-      .catch(err => {
-        throw err;
-      });
+      );
+      const { data } = res;
+      return data;
+    } catch (error) {
+      throw error;
+    }
   },
 
   getFilmById(id) {

@@ -1,8 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import SearchForm from '../SearchForm/SearchForm';
 import s from './NavBar.module.css';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-export default function NavBar({ searchQuery }) {
+const queryClient = new QueryClient();
+
+export default function NavBar() {
   return (
     <header className={s.header}>
       <ul className={s.list}>
@@ -26,7 +29,9 @@ export default function NavBar({ searchQuery }) {
           </NavLink>
         </li>
       </ul>
-      <SearchForm />
+      <QueryClientProvider client={queryClient}>
+        <SearchForm />
+      </QueryClientProvider>
     </header>
   );
 }

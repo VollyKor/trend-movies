@@ -4,6 +4,7 @@ import request from '../../service/apiRequest';
 import Gallery from '../Gallery/Gallery';
 import DownloadView from '../DownloadView/DownloadView';
 import NotFoundView from '../NotFoundView/NotFoundView';
+
 export default function HomeView() {
   const [status, setStatus] = useState('idle');
   const [data, setData] = useState({});
@@ -50,11 +51,7 @@ export default function HomeView() {
   }
   if (status === 'resolved') {
     return (
-      <Gallery
-        arrayOfObjects={data}
-        handleChange={HandleChange}
-        page={page}
-      ></Gallery>
+      <Gallery data={data} handleChange={HandleChange} page={page}></Gallery>
     );
   }
   return <NotFoundView />;

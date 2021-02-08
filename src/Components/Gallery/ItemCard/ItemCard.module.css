@@ -1,9 +1,10 @@
 .thumb {
   width: 400px;
+  border-bottom: 4px solid transparent;
 }
 .thumb:hover,
 .thumb:focus {
-  outline: 2px solid var(--primary-color);
+  border-bottom: 4px solid var(--react-main-color);
 }
 
 .img {

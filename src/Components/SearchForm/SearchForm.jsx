@@ -10,7 +10,7 @@ import s from './SearchForm.module.css';
 export default function SearchForm() {
   const history = useHistory();
   const location = useLocation();
-  const [query, setQuery] = useState('a');
+  const [query, setQuery] = useState('');
   const [submitQuery, setSubmitQuery] = useState('');
 
   // const queryClient = useQueryClient();
@@ -46,10 +46,11 @@ export default function SearchForm() {
     <>
       <form className={s.form} onSubmit={handleSubmit}>
         <label className={s.label}>
+          <span className={s.inputDescr}>Search Film</span>
           <input
             className={s.input}
             type="text"
-            placeholder="query"
+            placeholder="write something"
             onChange={({ target: { value } }) => setQuery(value)}
             value={query}
           />

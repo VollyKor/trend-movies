@@ -39,8 +39,8 @@ function App() {
 
   return (
     <Suspense fallback={<InitialDownload />}>
+      <NavBar />
       <Container>
-        <NavBar />
         <Switch>
           <Route path="/" exact>
             <HomeView />

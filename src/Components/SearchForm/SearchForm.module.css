@@ -1,5 +1,5 @@
 .form {
-  padding: 15px 0;
+  padding: 10px 0;
   margin-right: 15px;
 }
 
@@ -11,31 +11,35 @@
   /* position: absolute; */
   width: 18px;
   height: 18px;
-  fill: black;
+  fill: white;
   /* transform: translateY(-50%); */
 }
 
 .input {
   margin: 0 auto;
-  padding-left: 25px;
+  padding: 2px 0px 2px 26px;
 
   height: 20px;
   border-radius: 4px;
+  border: 2px solid transparent;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
 }
 .input:hover,
 .input:focus {
   outline: none;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--react-main-color);
 }
 
 .button {
   position: absolute;
-  left: 1px;
+  left: 93px;
   top: 1px;
 
   padding: 2px;
   background-color: transparent;
   border: none;
+  pointer-events: none;
 }
 
 .button:hover,
@@ -48,5 +52,12 @@
 .button:hover .icon,
 .button:focus .icon {
   outline: none;
-  fill: var(--primary-color);
+  fill: var(--react-main-color);
+}
+
+.inputDescr {
+  display: inline-block;
+  margin-right: 10px;
+
+  color: var(--react-main-color);
 }

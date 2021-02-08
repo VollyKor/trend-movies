@@ -1,12 +1,14 @@
 :root {
   --primary-color: darkorange;
   --secondary-color: black;
+  --react-main-color: #61dafb;
+  --react-bckg-color: #20232a;
+  --react-accent-color: rgb(109, 109, 109);
 }
 
 header {
-  background-color: gray;
+  background-color: #20232a;
   padding: 10px 0px;
-  margin-bottom: 10px;
 }
 ul {
   padding: 0;
@@ -55,7 +57,6 @@ ul {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 15px;
-  background-color: whitesmoke;
 }
 
 ul {

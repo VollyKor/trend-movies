@@ -1,7 +1,7 @@
-.header {
+.wrapper {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .list {
@@ -22,8 +22,7 @@
 
 .link:hover,
 .link:focus {
-  border: none;
-  outline: 1px solid darkorange;
+  border: 2px solid var(--react-main-color);
 }
 
 .link {
@@ -32,9 +31,11 @@
   display: inline-block;
   text-decoration: none;
   padding: 10px 20px;
-  color: black;
+  border: 2px solid transparent;
+  color: white;
 }
 .active-link {
   /* color: white; */
-  background-color: var(--primary-color);
+  color: #212121;
+  background-color: var(--react-main-color);
 }

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { BsSearch as Icon } from 'react-icons/bs';
-import { useQuery } from 'react-query';
 import axios from 'axios';
 import request from '../../service/apiRequest';
 
@@ -13,22 +12,14 @@ export default function SearchForm() {
   const [query, setQuery] = useState('');
   const [submitQuery, setSubmitQuery] = useState('');
 
-  // const queryClient = useQueryClient();
-
-  async function searchFilms(query) {
-    const res = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=132f2a543c82d69a556f0bb280a697a7&query=${query}`,
-    );
-    const { data } = res;
-    return data;
-  }
-
-  const { data, status } = useQuery(['filmQuery', query], e => {
-    console.log(e.queryKey[1]);
-    return request.searchFilms(e.queryKey[1]);
-  });
-
-  // console.log(data);
+  // async function searchFilms(query) {
+  //   const response = await axios.get(
+  //     `https://api.themoviedb.org/3/search/movie?api_key=132f2a543c82d69a556f0bb280a697a7&query=${query}`,
+  //   );
+  //   const { data } = response;
+  //   console.log(data);
+  //   return data;
+  // }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -40,6 +31,7 @@ export default function SearchForm() {
         search: `query=${query}`,
       });
       setSubmitQuery(query);
+      // searchFilms(submitQuery);
     }
   }
   return (

@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import ItemCard from './ItemCard/ItemCard';
 import s from './Gallery.module.css';
 import ReactPaginate from 'react-paginate';
-export default function Gallery({ arrayOfObjects, handleChange, page }) {
-  const { total_pages, results } = arrayOfObjects;
+
+export default function Gallery({ data, handleChange, page }) {
+  const { total_pages, results } = data;
 
   return (
     <>

@@ -5,6 +5,7 @@ import ProductionCompanies from './ProductionCompanies/ProductionCompanies';
 import Review from './Review/Review';
 import ActorsList from './ActorsList/ActorsList';
 import s from './MovieAdditionalInfo.module.css';
+import { useLocation } from 'react-router-dom';
 
 export default function AdditionalMovieInfo({
   filmData: { production_companies },
@@ -13,6 +14,8 @@ export default function AdditionalMovieInfo({
   const { movieId } = useParams();
   const [reviewData, setReviewData] = useState(null);
   const [castData, setCastData] = useState(null);
+  const location = useLocation();
+  console.log(location);
 
   useEffect(() => {
     request.getReview(movieId).then(data => {
@@ -31,7 +34,10 @@ export default function AdditionalMovieInfo({
         <ul className={s.linkList}>
           <li key={1} className={s.item}>
             <NavLink
-              to={`${url}/production-companies`}
+              to={{
+                pathname: `${url}/production-companies`,
+                state: { ...location.state },
+              }}
               className={s.link}
               activeClassName={s.linkActive}
             >
@@ -42,7 +48,10 @@ export default function AdditionalMovieInfo({
             <NavLink
               className={s.link}
               activeClassName={s.linkActive}
-              to={`${url}/reviews`}
+              to={{
+                pathname: `${url}/reviews`,
+                state: { ...location.state },
+              }}
             >
               Reviews
             </NavLink>
@@ -51,7 +60,10 @@ export default function AdditionalMovieInfo({
             <NavLink
               className={s.link}
               activeClassName={s.linkActive}
-              to={`${url}/cast`}
+              to={{
+                pathname: `${url}/cast`,
+                state: { ...location.state },
+              }}
             >
               Cast
             </NavLink>

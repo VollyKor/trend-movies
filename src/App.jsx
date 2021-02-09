@@ -6,6 +6,7 @@ import Container from './service/Container';
 import NotFoundView from './Components/NotFoundView/NotFoundView';
 import request from './service/apiRequest';
 import InitialDownload from './Components/InitialDownload/InitialDownload';
+import MoviePlaceholder from './Components/MoviePlaceholder/MoviePlaceholder';
 
 const MoviesView = lazy(() =>
   import('./Components/Movies/MoviesView' /* webpackChunkName: 'MoviesView' */),
@@ -46,7 +47,7 @@ function App() {
           </Route>
 
           <Route path="/movies" exact>
-            {!data && <div>пока пусто</div>}
+            {!data && <MoviePlaceholder />}
             {data && (
               <>
                 <MoviesView data={data} />

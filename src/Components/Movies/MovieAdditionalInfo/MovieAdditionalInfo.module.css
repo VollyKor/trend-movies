@@ -41,6 +41,10 @@ item a:active {
   border-top: 4px solid transparent;
 }
 
+.link:hover {
+  border-bottom: 4px solid var(--react-main-color);
+}
+
 .linkActive {
   color: var(--react-main-color);
   border-bottom: 4px solid var(--react-main-color);

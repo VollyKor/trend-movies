@@ -4,6 +4,8 @@ import s from './GoBackButton.module.css';
 export default function GoBackButton() {
   const history = useHistory();
 
+  // console.log(history.location);
+
   function handleClick() {
     history.push(history.location?.state?.from ?? '/');
   }

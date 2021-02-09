@@ -11,19 +11,7 @@ export default function HomeView() {
   const [page, setPage] = useState(1);
 
   const HandleChange = ({ selected }) => {
-    // if (selected + 1 !== page) {
-    console.log(selected);
     setPage(selected + 1);
-    // }
-    // setStatus('pending');
-    // request.getTrendFilms(page).then(data => {
-    //   setData(data);
-    //   setPage(data.page);
-
-    //   if (data.results.length > 0) {
-    //     setStatus('resolved');
-    //   }
-    // });
   };
 
   useEffect(() => {

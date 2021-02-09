@@ -1,6 +1,4 @@
 :root {
-  --primary-color: darkorange;
-  --secondary-color: black;
   --react-main-color: #61dafb;
   --react-bckg-color: #20232a;
   --react-accent-color: rgb(109, 109, 109);
@@ -66,6 +64,11 @@ ul {
 img {
   display: block;
 }
+
+/* p {
+  margin: 0;
+  margin-bottom: 5px;
+} */
 
 .flex-box {
   display: flex;

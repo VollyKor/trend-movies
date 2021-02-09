@@ -1,10 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import SearchForm from '../SearchForm/SearchForm';
 import s from './NavBar.module.css';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import Container from '../../service/Container';
-
-const queryClient = new QueryClient();
 
 export default function NavBar() {
   return (
@@ -32,9 +29,7 @@ export default function NavBar() {
               </NavLink>
             </li>
           </ul>
-          <QueryClientProvider client={queryClient}>
-            <SearchForm />
-          </QueryClientProvider>
+          <SearchForm />
         </div>
       </Container>
     </header>

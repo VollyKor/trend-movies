@@ -2,7 +2,6 @@ import './App.css';
 import { lazy, useState, Suspense } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import GoBackButton from './Components/Movies/GoBackButton/GoBackButton';
 import Container from './service/Container';
 import NotFoundView from './Components/NotFoundView/NotFoundView';
 import request from './service/apiRequest';
@@ -50,7 +49,6 @@ function App() {
             {!data && <div>пока пусто</div>}
             {data && (
               <>
-                <GoBackButton />
                 <MoviesView data={data} />
               </>
             )}

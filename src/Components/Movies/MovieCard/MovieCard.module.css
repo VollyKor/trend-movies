@@ -13,7 +13,6 @@
 .release_date {
   display: inline-block;
   padding: 5px;
-  background-color: var(--praimary-color);
 }
 
 .span {
@@ -21,5 +20,22 @@
   padding: 5px;
   margin-left: 5px;
   border-radius: 3px;
-  background-color: var(--primary-color);
+  background-color: var(--react-main-color);
+}
+
+.descr {
+  color: var(--react-accent-color);
+}
+
+.genres {
+  padding: 4px 6px;
+  background-color: var(--react-accent-color);
+  border-radius: 3px;
+  color: white;
+  pointer-events: none;
+}
+
+.emptyImg {
+  max-width: 500px;
+  max-height: 100%;
 }

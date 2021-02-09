@@ -4,6 +4,7 @@ import request from '../../../service/apiRequest';
 import MovieCard from '../MovieCard/MovieCard';
 import MovieAdditionalInfo from '../MovieAdditionalInfo/MovieAdditionalInfo';
 import GoBackButton from '../GoBackButton/GoBackButton';
+
 export default function MovieDetailView() {
   const { movieId } = useParams();
   const [data, setData] = useState({});

@@ -4,6 +4,7 @@ import request from '../../../service/apiRequest';
 import MovieCard from '../MovieCard/MovieCard';
 import MovieAdditionalInfo from '../MovieAdditionalInfo/MovieAdditionalInfo';
 import GoBackButton from '../GoBackButton/GoBackButton';
+import NotFoundView from '../../NotFoundView/NotFoundView';
 
 export default function MovieDetailView() {
   const { movieId } = useParams();
@@ -41,6 +42,6 @@ export default function MovieDetailView() {
     );
   }
   if (status === 'rejected') {
-    return <div>Что то пошло не так</div>;
+    return <NotFoundView />;
   }
 }

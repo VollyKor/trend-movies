@@ -38,7 +38,7 @@ export default function HomeView() {
   }, [currentPage]);
 
   if (status === 'idle') {
-    return <h2>:Ждем</h2>;
+    return <DownloadView />;
   }
   if (status === 'pending') {
     return <DownloadView />;

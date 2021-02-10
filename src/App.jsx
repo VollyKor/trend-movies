@@ -5,8 +5,8 @@ import { useEffect } from 'react';
 import Container from './service/Container';
 import NotFoundView from './Components/NotFoundView/NotFoundView';
 import request from './service/apiRequest';
-import InitialDownload from './Components/InitialDownload/InitialDownload';
 import MoviePlaceholder from './Components/MoviePlaceholder/MoviePlaceholder';
+import DownloadView from './Components/DownloadView/DownloadView';
 
 const MoviesView = lazy(() =>
   import('./Components/Movies/MoviesView' /* webpackChunkName: 'MoviesView' */),
@@ -38,7 +38,7 @@ function App() {
   }, [location.search]);
 
   return (
-    <Suspense fallback={<InitialDownload />}>
+    <Suspense fallback={<DownloadView />}>
       <NavBar />
       <Container>
         <Switch>

@@ -15,7 +15,6 @@ export default function AdditionalMovieInfo({
   const [reviewData, setReviewData] = useState(null);
   const [castData, setCastData] = useState(null);
   const location = useLocation();
-  console.log(location);
 
   useEffect(() => {
     request.getReview(movieId).then(data => {

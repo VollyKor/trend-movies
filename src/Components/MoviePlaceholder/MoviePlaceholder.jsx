@@ -5,7 +5,7 @@ export default function MoviePlaceholder() {
     <div className="thumb">
       <img
         src={emptyListPlaceholder}
-        style={{ margin: '0 auto' }}
+        style={{ margin: '0 auto', maxHeight: '450px' }}
         alt="emptyListPlaceholder"
       ></img>
     </div>

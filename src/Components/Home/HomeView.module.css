@@ -31,11 +31,7 @@
   color: white;
   padding: 10px;
   border: 2px solid transparent;
-  border-radius: 5px;
-}
-
-.page_link:hover {
-  border: 2px solid white;
+  border-radius: 10px;
 }
 
 .page_item__active a {
@@ -48,22 +44,34 @@
 
   color: #212121;
   background-color: var(--react-main-color);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .previousButton,
 .nextButton {
-  border-radius: 2px;
-  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
   background-color: var(--react-main-color);
+}
+
+.previousButton a,
+.nextButton a {
+  box-sizing: border-box;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 10px;
 }
 
 .previousButton {
   margin-right: 10px;
+  border: 2px solid transparent;
 }
 
 .nextButton {
   margin-left: 10px;
+  border: 2px solid transparent;
 }
 
 .ellipsis {
@@ -76,9 +84,13 @@
   padding: 10px;
 
   border: 2px solid transparent;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
-.ellipsis:hover {
+.ellipsis:hover,
+.nextButton:hover,
+.previousButton:hover,
+.next.page_link:hover,
+.page_link:hover {
   border: 2px solid white;
 }

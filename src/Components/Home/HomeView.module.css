@@ -1,3 +1,84 @@
 .link {
   display: block;
 }
+
+.pagination {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 15px 0px;
+  background-color: var(--react-bckg-color);
+}
+
+/* .page_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  min-width: 30px;
+  height: 30px;
+} */
+
+.page_link {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  min-width: 40px;
+  min-height: 40px;
+  color: white;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+}
+
+.page_link:hover {
+  border: 2px solid white;
+}
+
+.page_item__active a {
+  margin-left: 5px;
+  margin-right: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #212121;
+  background-color: var(--react-main-color);
+  border-radius: 5px;
+}
+
+.previousButton,
+.nextButton {
+  border-radius: 2px;
+  padding: 4px 8px;
+  background-color: var(--react-main-color);
+}
+
+.previousButton {
+  margin-right: 10px;
+}
+
+.nextButton {
+  margin-left: 10px;
+}
+
+.ellipsis {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  min-width: 40px;
+  min-height: 40px;
+  color: white;
+  padding: 10px;
+
+  border: 2px solid transparent;
+  border-radius: 5px;
+}
+
+.ellipsis:hover {
+  border: 2px solid white;
+}

@@ -1,6 +1,6 @@
 import emptyListPlaceholder from '../../Images/EmptyListPlaceholder.jpg';
 
-export default function MoviePlaceholder() {
+export default function EmptyView() {
   return (
     <div className="thumb">
       <img

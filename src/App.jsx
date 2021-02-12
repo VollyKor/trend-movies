@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import Container from './service/Container';
 import NotFoundView from './Components/NotFoundView/NotFoundView';
 import request from './service/apiRequest';
-import MoviePlaceholder from './Components/MoviePlaceholder/MoviePlaceholder';
+import EmptyView from './Components/EmptyView/EmptyView';
 import DownloadView from './Components/DownloadView/DownloadView';
 
 const MoviesView = lazy(() =>
@@ -47,7 +47,7 @@ function App() {
           </Route>
 
           <Route path="/movies" exact>
-            {!data && <MoviePlaceholder />}
+            {!data && <EmptyView />}
             {data && (
               <>
                 <MoviesView data={data} />

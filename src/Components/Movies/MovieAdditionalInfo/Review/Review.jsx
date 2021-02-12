@@ -1,12 +1,12 @@
 import s from './Review.module.css';
-import MoviePlaceholder from '../../../MoviePlaceholder/MoviePlaceholder';
 import ReviewItem from '../ReviewItem/ReviewItem';
+import EmptyView from '../../../EmptyView/EmptyView';
 
 export default function Review({ dataObj }) {
   const { results } = dataObj;
 
   if (results.length === 0) {
-    return <MoviePlaceholder />;
+    return <EmptyView />;
   }
 
   return (

@@ -5,6 +5,8 @@ import MovieCard from '../MovieCard/MovieCard';
 import MovieAdditionalInfo from '../MovieAdditionalInfo/MovieAdditionalInfo';
 import GoBackButton from '../GoBackButton/GoBackButton';
 import NotFoundView from '../../NotFoundView/NotFoundView';
+import DownloadView from './../../DownloadView/DownloadView';
+import EmptyView from '../../EmptyView/EmptyView';
 
 export default function MovieDetailView() {
   const { slug } = useParams();
@@ -28,10 +30,10 @@ export default function MovieDetailView() {
   }, [idFromSLug]);
 
   if (status === 'idle') {
-    return <div>Тут ничего нет</div>;
+    return <EmptyView />;
   }
   if (status === 'pending') {
-    return <div>Загружаю</div>;
+    return <DownloadView />;
   }
   if (status === 'resolved') {
     return (

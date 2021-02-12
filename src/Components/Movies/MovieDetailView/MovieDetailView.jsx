@@ -7,15 +7,16 @@ import GoBackButton from '../GoBackButton/GoBackButton';
 import NotFoundView from '../../NotFoundView/NotFoundView';
 
 export default function MovieDetailView() {
-  const { movieId } = useParams();
+  const { slug } = useParams();
   const [data, setData] = useState({});
   const [status, setStatus] = useState('idle');
+  const idFromSLug = slug.match(/[0-9a-zA-Z]+$/)[0];
 
   useEffect(() => {
     setStatus('pending');
 
     request
-      .getFilmById(movieId)
+      .getFilmById(idFromSLug)
       .then(data => {
         setData(data);
         setStatus('resolved');
@@ -24,7 +25,7 @@ export default function MovieDetailView() {
         setStatus('rejected');
         throw error;
       });
-  }, [movieId]);
+  }, [idFromSLug]);
 
   if (status === 'idle') {
     return <div>Тут ничего нет</div>;

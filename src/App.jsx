@@ -55,7 +55,7 @@ function App() {
             )}
           </Route>
 
-          <Route path="/movies/:movieId">
+          <Route path="/movies/:slug">
             <MovieDetailView />
           </Route>
 

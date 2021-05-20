@@ -1,9 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
-import ItemCard from './ItemCard/ItemCard';
-import s from './Gallery.module.css';
 import slugify from 'slugify';
 
-export default function Gallery({ data }) {
+import ItemCard from '../ItemCard/ItemCard';
+
+import s from './Gallery.module.css';
+
+const Gallery = ({ data }) => {
   const location = useLocation();
   return (
     <>
@@ -31,4 +33,6 @@ export default function Gallery({ data }) {
       </ul>
     </>
   );
-}
+};
+
+export default Gallery;

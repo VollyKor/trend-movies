@@ -4,18 +4,17 @@ import {
   useParams,
   useRouteMatch,
   Route,
-  useHistory,
+  useLocation,
 } from 'react-router-dom';
-import request from '../../../service/apiRequest';
-import ProductionCompanies from './ProductionCompanies/ProductionCompanies';
-import Review from './Review/Review';
-import ActorsList from './ActorsList/ActorsList';
-import s from './MovieAdditionalInfo.module.css';
-import { useLocation } from 'react-router-dom';
 
-export default function AdditionalMovieInfo({
-  filmData: { production_companies },
-}) {
+import ProductionCompanies from '../ProductionCompanies/ProductionCompanies';
+import Review from '../Review/Review';
+import ActorsList from '../ActorsList/ActorsList';
+
+import s from './MovieAdditionalInfo.module.css';
+import request from 'service/apiRequest';
+
+const AdditionalMovieInfo = ({ filmData: { production_companies } }) => {
   const { url } = useRouteMatch();
   const { slug } = useParams();
   const [reviewData, setReviewData] = useState(null);
@@ -92,4 +91,6 @@ export default function AdditionalMovieInfo({
       </div>
     </div>
   );
-}
+};
+
+export default AdditionalMovieInfo;

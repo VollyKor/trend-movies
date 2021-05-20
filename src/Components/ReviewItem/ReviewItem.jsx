@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import s from './ReviewItem.module.css';
 
-export default function ReviewItem({ reviewObj }) {
+const ReviewItem = ({ reviewObj }) => {
   const { content, id, author } = reviewObj;
   const [reviewToggle, setReviewToggle] = useState(false);
 
@@ -35,4 +35,6 @@ export default function ReviewItem({ reviewObj }) {
       )}
     </li>
   );
-}
+};
+
+export default ReviewItem;

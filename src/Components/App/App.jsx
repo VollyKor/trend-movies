@@ -2,28 +2,30 @@ import './App.css';
 import { lazy, useState, Suspense } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import Container from './service/Container';
-import NotFoundView from './Components/NotFoundView/NotFoundView';
-import request from './service/apiRequest';
-import EmptyView from './Components/EmptyView/EmptyView';
-import DownloadView from './Components/DownloadView/DownloadView';
+
+import NotFoundView from 'components/NotFoundView/NotFoundView';
+import DownloadView from 'components/DownloadView/DownloadView';
+import EmptyView from 'components/EmptyView';
+import Container from 'components/Container';
+
+import request from 'service/apiRequest';
 
 const MoviesView = lazy(() =>
-  import('./Components/Movies/MoviesView' /* webpackChunkName: 'MoviesView' */),
+  import('components/MoviesView' /* webpackChunkName: 'MoviesView' */),
 );
 const HomeView = lazy(() =>
-  import('./Components/Home/HomeView' /* webpackChunkName: 'HomeView' */),
+  import('components/HomeView/HomeView' /* webpackChunkName: 'HomeView' */),
 );
 const MovieDetailView = lazy(() =>
   import(
-    './Components/Movies/MovieDetailView/MovieDetailView' /* webpackChunkName: 'MovieDetailView' */
+    'components/MovieDetailView/MovieDetailView' /* webpackChunkName: 'MovieDetailView' */
   ),
 );
 const NavBar = lazy(() =>
-  import('./Components/NavBar/NavBar' /* webpackChunkName: 'NavBar' */),
+  import('components/NavBar/NavBar' /* webpackChunkName: 'NavBar' */),
 );
 
-function App() {
+const App = () => {
   const [data, setData] = useState(null);
   const location = useLocation();
 
@@ -66,6 +68,6 @@ function App() {
       </Container>
     </Suspense>
   );
-}
+};
 
 export default App;

@@ -1,6 +1,7 @@
 import s from './ItemCard.module.css';
-import empteImgURL from '../../../Images/imgPlaceholder.png';
-export default function ItemCard({ item }) {
+import empteImgURL from 'Images/imgPlaceholder.png';
+
+const ItemCard = ({ item }) => {
   const { title, backdrop_path } = item;
   return (
     <div className={s.thumb}>
@@ -20,4 +21,6 @@ export default function ItemCard({ item }) {
       <p className={s.title}>{title ?? 'Error, title is absent'}</p>
     </div>
   );
-}
+};
+
+export default ItemCard;

@@ -1,17 +1,22 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import request from '../../../service/apiRequest';
-import MovieCard from '../MovieCard/MovieCard';
-import MovieAdditionalInfo from '../MovieAdditionalInfo/MovieAdditionalInfo';
-import GoBackButton from '../GoBackButton/GoBackButton';
-import NotFoundView from '../../NotFoundView/NotFoundView';
-import DownloadView from './../../DownloadView/DownloadView';
-import EmptyView from '../../EmptyView/EmptyView';
+
+import MovieCard from 'components/MovieCard/MovieCard';
+import MovieAdditionalInfo from 'components/MovieAdditionalInfo/MovieAdditionalInfo';
+import GoBackButton from 'components/GoBackButton/GoBackButton';
+import NotFoundView from 'components/NotFoundView/NotFoundView';
+import DownloadView from 'components/DownloadView/DownloadView';
+import EmptyView from 'components/EmptyView';
+
+import request from 'service/apiRequest';
 
 export default function MovieDetailView() {
-  const { slug } = useParams();
+  const params = useParams();
+  const { slug } = params;
+
   const [data, setData] = useState({});
   const [status, setStatus] = useState('idle');
+
   const idFromSLug = slug.match(/[0-9a-zA-Z]+$/)[0];
 
   useEffect(() => {

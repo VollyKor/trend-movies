@@ -1,24 +1,24 @@
 import { useEffect, useState } from 'react';
-import s from './HomeView.module.css';
-import request from '../../service/apiRequest';
-import Gallery from '../Gallery/Gallery';
-import DownloadView from '../DownloadView/DownloadView';
-import NotFoundView from '../NotFoundView/NotFoundView';
 import ReactPaginate from 'react-paginate';
+
+import Gallery from 'components/Gallery/Gallery';
+import DownloadView from 'components/DownloadView/DownloadView';
+import NotFoundView from 'components/NotFoundView/NotFoundView';
+
+import request from 'service/apiRequest';
+import s from './HomeView.module.css';
 
 export default function HomeView() {
   const [status, setStatus] = useState('idle');
   const [data, setData] = useState([]);
+
   const { total_pages, results } = data;
 
-  // Paginations settings
-  // =================================================================
   const [currentPage, setCurrentPage] = useState(1);
   const initialPage = currentPage - 1;
   const HandleChange = e => {
     setCurrentPage(e.selected + 1);
   };
-  // =================================================================
 
   useEffect(() => {
     setStatus('pending');
@@ -27,7 +27,7 @@ export default function HomeView() {
       .then(data => {
         setData(data);
 
-        if (data.results.length > 0) {
+        if (results?.length > 0) {
           setStatus('resolved');
         }
       })

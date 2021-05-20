@@ -4,9 +4,10 @@ import { BsSearch as Icon } from 'react-icons/bs';
 
 import s from './SearchForm.module.css';
 
-export default function SearchForm() {
+const SearchForm = () => {
   const history = useHistory();
   const location = useLocation();
+
   const [query, setQuery] = useState('');
   const [submitQuery, setSubmitQuery] = useState('');
 
@@ -22,6 +23,7 @@ export default function SearchForm() {
       setSubmitQuery(query);
     }
   }
+
   return (
     <>
       <form className={s.form} onSubmit={handleSubmit}>
@@ -41,4 +43,6 @@ export default function SearchForm() {
       </form>
     </>
   );
-}
+};
+
+export default SearchForm;

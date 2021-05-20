@@ -1,7 +1,7 @@
 import s from './ProductionCompanies.module.css';
-import logoPlaceholder from '../../../../Images/LogoPlaceholder.png';
+import logoPlaceholder from 'Images/LogoPlaceholder.png';
 
-export default function ProductionCompanies({ dataArray }) {
+const ProductionCompanies = ({ dataArray }) => {
   return (
     <ul className={s.list}>
       {dataArray.map(({ name, id, logo_path }) => {
@@ -22,4 +22,6 @@ export default function ProductionCompanies({ dataArray }) {
       })}
     </ul>
   );
-}
+};
+
+export default ProductionCompanies;

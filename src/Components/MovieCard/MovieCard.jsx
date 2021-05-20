@@ -1,7 +1,7 @@
 import s from './MovieCard.module.css';
-import empteImgURL from '../../../Images/imgPlaceholder.png';
+import empteImgURL from 'Images/imgPlaceholder.png';
 
-export default function FilmView({ data }) {
+const FilmView = ({ data }) => {
   const {
     backdrop_path,
     title,
@@ -10,6 +10,7 @@ export default function FilmView({ data }) {
     overview,
     genres,
   } = data;
+
   return (
     <div className="flex-box">
       {backdrop_path ? (
@@ -31,23 +32,26 @@ export default function FilmView({ data }) {
           {`${title}`}
           <span className={s.release_date}>({release_date.slice(0, 4)})</span>
         </h2>
+
         <p>
           UserScore
           <span className={s.span}>{`${vote_average}`}</span>
         </p>
+
         <h3>Overview</h3>
         <p className={s.descr}>{overview}</p>
         <h3 className={s.subtitle}>Genres</h3>
+
         <ul className={`flex-box ${s.list}`}>
-          {genres.map(({ name }) => {
-            return (
-              <li key={name} className={s['list-item']}>
-                <p className={s.genres}>{name}</p>
-              </li>
-            );
-          })}
+          {genres.map(({ name }) => (
+            <li key={name} className={s['list-item']}>
+              <p className={s.genres}>{name}</p>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
   );
-}
+};
+
+export default FilmView;

@@ -1,8 +1,9 @@
-import s from './Review.module.css';
-import ReviewItem from '../ReviewItem/ReviewItem';
-import EmptyView from '../../../EmptyView/EmptyView';
+import ReviewItem from 'components/ReviewItem/ReviewItem';
+import EmptyView from 'components/EmptyView';
 
-export default function Review({ dataObj }) {
+import s from './Review.module.css';
+
+const Review = ({ dataObj }) => {
   const { results } = dataObj;
 
   if (results.length === 0) {
@@ -16,4 +17,6 @@ export default function Review({ dataObj }) {
       })}
     </ul>
   );
-}
+};
+
+export default Review;

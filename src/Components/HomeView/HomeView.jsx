@@ -27,7 +27,7 @@ export default function HomeView() {
       .then(data => {
         setData(data);
 
-        if (results?.length > 0) {
+        if (data.results.length > 0) {
           setStatus('resolved');
         }
       })

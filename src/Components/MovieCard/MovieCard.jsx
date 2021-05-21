@@ -10,7 +10,6 @@ const FilmView = ({ data }) => {
     overview,
     genres,
   } = data;
-
   return (
     <div className="flex-box">
       {backdrop_path ? (

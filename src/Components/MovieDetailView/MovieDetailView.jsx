@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import MovieCard from 'components/MovieCard/MovieCard';
 import MovieAdditionalInfo from 'components/MovieAdditionalInfo/MovieAdditionalInfo';
 import GoBackButton from 'components/GoBackButton/GoBackButton';
 import NotFoundView from 'components/NotFoundView/NotFoundView';
 import DownloadView from 'components/DownloadView/DownloadView';
+import MovieCard from 'components/MovieCard/MovieCard';
 import EmptyView from 'components/EmptyView';
 
 import request from 'service/apiRequest';
@@ -15,7 +15,7 @@ export default function MovieDetailView() {
   const { slug } = params;
 
   const [data, setData] = useState({});
-  const [status, setStatus] = useState('idle');
+  const [status, setStatus] = useState(null);
 
   const idFromSLug = slug.match(/[0-9a-zA-Z]+$/)[0];
 
@@ -28,28 +28,25 @@ export default function MovieDetailView() {
         setData(data);
         setStatus('resolved');
       })
-      .catch(error => {
+      .catch(() => {
         setStatus('rejected');
-        throw error;
       });
   }, [idFromSLug]);
 
-  if (status === 'idle') {
-    return <EmptyView />;
-  }
-  if (status === 'pending') {
-    return <DownloadView />;
-  }
-  if (status === 'resolved') {
-    return (
-      <>
-        <GoBackButton />
-        <MovieCard data={data} />
-        <MovieAdditionalInfo filmData={data} />
-      </>
-    );
-  }
-  if (status === 'rejected') {
-    return <NotFoundView />;
+  switch (status) {
+    case 'pending':
+      return <DownloadView />;
+    case 'resolved':
+      return (
+        <>
+          <GoBackButton />
+          <MovieCard data={data} />
+          <MovieAdditionalInfo filmData={data} />
+        </>
+      );
+    case 'rejected':
+      return <NotFoundView />;
+    default:
+      return <EmptyView />;
   }
 }

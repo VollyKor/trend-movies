@@ -1,4 +1,4 @@
-import { render, fireEvent, waitFor, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 
 import MoviesView from 'components/MoviesView';
@@ -6,7 +6,7 @@ import MoviesView from 'components/MoviesView';
 import { MoviesViewData } from './mock/data';
 
 describe('Test Component MoviesView', () => {
-  test('it renders', () => {
+  it('renders correctle', () => {
     const scr = render(
       <MemoryRouter>
         <MoviesView data={MoviesViewData} />
@@ -14,5 +14,15 @@ describe('Test Component MoviesView', () => {
     );
 
     expect(scr.container).toContainHTML('<body>');
+  });
+
+  it('render correctly', () => {
+    const scr = render(
+      <MemoryRouter>
+        <MoviesView data={MoviesViewData} />
+      </MemoryRouter>,
+    );
+
+    expect(scr).toMatchSnapshot();
   });
 });

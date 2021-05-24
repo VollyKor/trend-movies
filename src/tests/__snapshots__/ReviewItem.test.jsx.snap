@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ReviewItem Component match snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <li
+        class="item"
+      >
+        <h4
+          class="title"
+        >
+          JPV852
+        </h4>
+        <p
+          class="text"
+        >
+          Serviceable suspense-thriller has Angelina Jolie in her element. Has a little Cliffhanger vibe in terms of the main character and their past tragedies but still works for the most part. Nothing fantastic and not up to the standards from Taylor Sheridan yet still worth a watch. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ut ad, accusantium, perferendis sit, voluptas quae saepe pos
+          <button
+            class="button"
+            type="button"
+          >
+            Show more...
+          </button>
+        </p>
+      </li>
+    </div>
+  </body>,
+  "container": <div>
+    <li
+      class="item"
+    >
+      <h4
+        class="title"
+      >
+        JPV852
+      </h4>
+      <p
+        class="text"
+      >
+        Serviceable suspense-thriller has Angelina Jolie in her element. Has a little Cliffhanger vibe in terms of the main character and their past tragedies but still works for the most part. Nothing fantastic and not up to the standards from Taylor Sheridan yet still worth a watch. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ut ad, accusantium, perferendis sit, voluptas quae saepe pos
+        <button
+          class="button"
+          type="button"
+        >
+          Show more...
+        </button>
+      </p>
+    </li>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

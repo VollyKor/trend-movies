@@ -1,7 +1,7 @@
-// import react-testing methods
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import server from 'mocks/server';
 import { rest } from 'msw';
+
 import Test from 'components/ExampleTest';
 
 test('loads and displays greeting', async () => {

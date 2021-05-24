@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Component MoviesView render correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <ul
+        class="list"
+      >
+        <li
+          class="item"
+        >
+          <a
+            class="link"
+            href="/movies/shrek-808"
+          >
+            <div
+              class="thumb"
+            >
+              <img
+                alt="Shrek"
+                class="img"
+                src="https://image.tmdb.org/t/p/w500/2l5UHZBcp9cx1PwKLdisJ0gV9jB.jpg"
+              />
+              <p
+                class="title"
+              >
+                Shrek
+              </p>
+            </div>
+          </a>
+        </li>
+        <li
+          class="item"
+        >
+          <a
+            class="link"
+            href="/movies/shrek2-8082"
+          >
+            <div
+              class="thumb"
+            >
+              <img
+                alt="Shrek2"
+                class="img"
+                src="https://image.tmdb.org/t/p/w500/2l5UHZBcp9cx1PwKLdisJ0gV9jB2.jpg"
+              />
+              <p
+                class="title"
+              >
+                Shrek2
+              </p>
+            </div>
+          </a>
+        </li>
+        <li
+          class="item"
+        >
+          <a
+            class="link"
+            href="/movies/shrek3-80212138"
+          >
+            <div
+              class="thumb"
+            >
+              <img
+                alt="Shrek3"
+                class="img"
+                src="https://image.tmdb.org/t/p/w500/2l5UHZBcp9cx1PwKLdisJ0gV9jB.jpg3"
+              />
+              <p
+                class="title"
+              >
+                Shrek3
+              </p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </body>,
+  "container": <div>
+    <ul
+      class="list"
+    >
+      <li
+        class="item"
+      >
+        <a
+          class="link"
+          href="/movies/shrek-808"
+        >
+          <div
+            class="thumb"
+          >
+            <img
+              alt="Shrek"
+              class="img"
+              src="https://image.tmdb.org/t/p/w500/2l5UHZBcp9cx1PwKLdisJ0gV9jB.jpg"
+            />
+            <p
+              class="title"
+            >
+              Shrek
+            </p>
+          </div>
+        </a>
+      </li>
+      <li
+        class="item"
+      >
+        <a
+          class="link"
+          href="/movies/shrek2-8082"
+        >
+          <div
+            class="thumb"
+          >
+            <img
+              alt="Shrek2"
+              class="img"
+              src="https://image.tmdb.org/t/p/w500/2l5UHZBcp9cx1PwKLdisJ0gV9jB2.jpg"
+            />
+            <p
+              class="title"
+            >
+              Shrek2
+            </p>
+          </div>
+        </a>
+      </li>
+      <li
+        class="item"
+      >
+        <a
+          class="link"
+          href="/movies/shrek3-80212138"
+        >
+          <div
+            class="thumb"
+          >
+            <img
+              alt="Shrek3"
+              class="img"
+              src="https://image.tmdb.org/t/p/w500/2l5UHZBcp9cx1PwKLdisJ0gV9jB.jpg3"
+            />
+            <p
+              class="title"
+            >
+              Shrek3
+            </p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

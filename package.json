@@ -1,5 +1,11 @@
 {
   "name": "react-basic-files",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/components/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ]
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {

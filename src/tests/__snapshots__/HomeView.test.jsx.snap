@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test HomeView component render snapShot 1`] = `
+Array [
+  <a
+    aria-disabled="true"
+    aria-label="Previous page"
+    rel="prev"
+    role="button"
+    tabindex="0"
+  >
+    Previous
+  </a>,
+]
+`;

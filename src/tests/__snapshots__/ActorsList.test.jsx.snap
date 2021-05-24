@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ActorsList component match snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <ul
+        class="list"
+      >
+        <li
+          class="item"
+        >
+          <img
+            alt=" of Dave Bautista"
+            class="img"
+            src="actorsPlaceholder.png"
+          />
+          <p
+            class="name"
+          >
+            Dave Bautista
+          </p>
+        </li>
+        <li
+          class="item"
+        >
+          <img
+            alt=" of /xIZojkBo3Cf0GnchjC8hSS5P105.jpg"
+            class="img"
+            src="https://image.tmdb.org/t/p/w500/xIZojkBo3Cf0GnchjC8hSS5P105.jpg"
+          />
+          <p
+            class="name"
+          >
+            Ella Purnell
+          </p>
+        </li>
+        <li
+          class="item"
+        >
+          <img
+            alt=" of /2kROckfySgXMBa2nsCIDoR9R6gg.jpg"
+            class="img"
+            src="https://image.tmdb.org/t/p/w500/2kROckfySgXMBa2nsCIDoR9R6gg.jpg"
+          />
+          <p
+            class="name"
+          >
+            Omari Hardwick
+          </p>
+        </li>
+        <li
+          class="item"
+        >
+          <img
+            alt=" of /5ABHVktvlIMyfLCZo2sJsOIMQCo.jpg"
+            class="img"
+            src="https://image.tmdb.org/t/p/w500/5ABHVktvlIMyfLCZo2sJsOIMQCo.jpg"
+          />
+          <p
+            class="name"
+          >
+            Ana de la Reguera
+          </p>
+        </li>
+        <li
+          class="item"
+        >
+          <img
+            alt=" of /7yHT7a1b3QAQaElX7aoVEoewy9N.jpg"
+            class="img"
+            src="https://image.tmdb.org/t/p/w500/7yHT7a1b3QAQaElX7aoVEoewy9N.jpg"
+          />
+          <p
+            class="name"
+          >
+            Theo Rossi
+          </p>
+        </li>
+        <li
+          class="item"
+        >
+          <img
+            alt=" of /wyos2SmpBUDjTz1A3EegL96hM2y.jpg"
+            class="img"
+            src="https://image.tmdb.org/t/p/w500/wyos2SmpBUDjTz1A3EegL96hM2y.jpg"
+          />
+          <p
+            class="name"
+          >
+            Matthias Schweighöfer
+          </p>
+        </li>
+      </ul>
+    </div>
+  </body>,
+  "container": <div>
+    <ul
+      class="list"
+    >
+      <li
+        class="item"
+      >
+        <img
+          alt=" of Dave Bautista"
+          class="img"
+          src="actorsPlaceholder.png"
+        />
+        <p
+          class="name"
+        >
+          Dave Bautista
+        </p>
+      </li>
+      <li
+        class="item"
+      >
+        <img
+          alt=" of /xIZojkBo3Cf0GnchjC8hSS5P105.jpg"
+          class="img"
+          src="https://image.tmdb.org/t/p/w500/xIZojkBo3Cf0GnchjC8hSS5P105.jpg"
+        />
+        <p
+          class="name"
+        >
+          Ella Purnell
+        </p>
+      </li>
+      <li
+        class="item"
+      >
+        <img
+          alt=" of /2kROckfySgXMBa2nsCIDoR9R6gg.jpg"
+          class="img"
+          src="https://image.tmdb.org/t/p/w500/2kROckfySgXMBa2nsCIDoR9R6gg.jpg"
+        />
+        <p
+          class="name"
+        >
+          Omari Hardwick
+        </p>
+      </li>
+      <li
+        class="item"
+      >
+        <img
+          alt=" of /5ABHVktvlIMyfLCZo2sJsOIMQCo.jpg"
+          class="img"
+          src="https://image.tmdb.org/t/p/w500/5ABHVktvlIMyfLCZo2sJsOIMQCo.jpg"
+        />
+        <p
+          class="name"
+        >
+          Ana de la Reguera
+        </p>
+      </li>
+      <li
+        class="item"
+      >
+        <img
+          alt=" of /7yHT7a1b3QAQaElX7aoVEoewy9N.jpg"
+          class="img"
+          src="https://image.tmdb.org/t/p/w500/7yHT7a1b3QAQaElX7aoVEoewy9N.jpg"
+        />
+        <p
+          class="name"
+        >
+          Theo Rossi
+        </p>
+      </li>
+      <li
+        class="item"
+      >
+        <img
+          alt=" of /wyos2SmpBUDjTz1A3EegL96hM2y.jpg"
+          class="img"
+          src="https://image.tmdb.org/t/p/w500/wyos2SmpBUDjTz1A3EegL96hM2y.jpg"
+        />
+        <p
+          class="name"
+        >
+          Matthias Schweighöfer
+        </p>
+      </li>
+    </ul>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

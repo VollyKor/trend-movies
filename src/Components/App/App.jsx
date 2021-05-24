@@ -25,11 +25,6 @@ const NavBar = lazy(() =>
   import('components/NavBar/NavBar' /* webpackChunkName: 'NavBar' */),
 );
 
-// if (process.env.NODE_ENV === 'development') {
-//   const worker = require('../../mocks/browser');
-//   worker.default.start();
-// }
-
 const App = () => {
   const [data, setData] = useState(null);
   const location = useLocation();

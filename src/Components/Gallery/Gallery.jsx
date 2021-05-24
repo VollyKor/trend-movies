@@ -18,9 +18,7 @@ const Gallery = ({ data }) => {
                   pathname: `/movies/${slugify(`${e.title} ${e.id}`, {
                     lower: true,
                   })}`,
-                  state: {
-                    from: location,
-                  },
+                  state: { from: location },
                 }}
                 key={e.id}
                 className={s.link}

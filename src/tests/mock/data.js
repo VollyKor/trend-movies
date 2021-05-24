@@ -154,7 +154,7 @@ export const filmResponse = {
   vote_count: 18,
 };
 
-export const filmResponse2 = {
+export const reviewResponse = {
   id: 791373,
   page: 1,
   results: [
@@ -253,4 +253,119 @@ export const filmResponse2 = {
   ],
   total_pages: 1,
   total_results: 6,
+};
+
+export const reviewsResponse = {
+  id: 503736,
+  page: 1,
+  results: [
+    {
+      author: 'msbreviews',
+      author_details: {
+        name: '',
+        username: 'msbreviews',
+        avatar_path:
+          '/https://secure.gravatar.com/avatar/992eef352126a53d7e141bf9e8707576.jpg',
+        rating: 6.0,
+      },
+      content:
+        "If you enjoy reading my Spoiler-Free reviews, please follow my blog @\r\nhttps://www.msbreviews.com\r\n\r\nZack Snyder is far from being a consensual director. Some viewers really love his work - Zack Snyder's Justice League was only possible due to passionate, hardcore fans - while others fail to understand the reasons behind the constant hype surrounding the filmmaker's projects. Personally, despite not belonging to his enormous fandom, I quite enjoy his work outside of the DCEU. From Dawn of the Dead to Watchmen, passing through 300, I hold these films in high regard. However, Batman v Superman: Dawn of Justice is unquestionably one of the biggest cinematic disappointments of my life, and it's arguably the movie that triggered the beginning of the controversial general opinion about the director.\r\n\r\nUsually, when people find themselves on a rough path, going back to their roots helps them get back on track, which is precisely what Snyder does here. The \"zombie apocalypse\" genre has been around for decades, but since the start of the new century, audiences all over the world were able to witness a narrative that was once unique and exciting become one of the most overdone, generic, formulaic pieces of storytelling. This last statement doesn't mean a few gems can't come out of it. From probably the greatest zombie film ever, Train to Busan, to the comedy classic Zombieland, there are truly great movies within the genre. So, where does Army of the Dead stand?\r\n\r\nSomewhere in the middle, labeled as \"good fun\", which is all I expected from this Netflix film. Let me get one thing out of the way immediately: this looks, sounds, and feels like a Snyder movie. Countless over-stylized shots, long slow-motion scenes, an overwhelming amount of gore and blood, bizarre song choices, a two-hour-and-a-half runtime... for better or worst, no one can complain about studio interferences this time. Clearly, the famous director had complete creative freedom, and it shows through all of the film's positives and negatives. Fortunately, Snyder's filmmaking style not only fits well within this genre, but it also works for the simple, entertainment-driven screenplay.\r\n\r\nA vast majority of viewers will press play in the hopes of receiving an action-heavy, fun, uncomplicated zombie movie with all the attributes that these flesh-eating characters possess. Except for a genuinely interesting storyline - though not new - concerning a specific type of zombies, everything else is pretty much what viewers have seen for the past two decades, which might be disappointing yet still highly enjoyable. From the way people can kill them to the time each infected person takes to become a zombie, every single cliche is present in this film. Honestly, none of them really annoy me unless they're repeated to exhaustion, which I don't believe Army of the Dead does that much.\r\n\r\nThe action sequences are all well-shot, but I did expect more from them. Most scenes are just characters randomly shooting, hitting insane headshots that viewers will just have to accept as something normal, which shouldn't be too hard, considering the recent action flicks. Occasionally, one-on-one or one-on-many combats ensue, and it elevates the excitement levels by focusing on that single character, but then it's brought down again by tiresome shootouts. Snyder asks the viewers to accept several dumb plot and character decisions, so it's always going to be a matter of how much you can take until it starts getting too much...\r\n\r\nPersonally, these logical issues don't really bother me - the ridiculous third act does push my limits, I admit. However, the lack of character development and overall care for everyone in the movie will always be a massive problem, especially when supposedly emotional, heartfelt moments end up having zero impact. I doubt anyone will be surprised to find out that people die in this film besides the zombies, consequently bringing tonal balance to the table. Obviously, not every character needs to receive a deep backstory and complex motivations, but it doesn't hurt to tell the viewers a bit about the people going into the danger zone so that the action sequences can carry more tension.\r\n\r\nWithout spoiling anything, there's a period in the movie where a deadly countdown begins, and everything that occurs from the starting time to the climactic moment just feels like any other scene in the film. The lack of tension and sense of urgency ultimately stops it from being one of the greats. Overall, it's an enjoyable zombie flick that offered me a blast of fun, but I still believe it could have been a lot better. Dave Bautista (My Spy, Avengers: Endgame) is the absolute standout, interpreting the only fully-developed character of the movie. Ella Purnell (Wildlike), Omari Hardwick (Sorry to Bother You), and Nora Arnezeder (Origin) are also quite good.\r\n\r\nFinally, a point must be made about the relationship between studios and filmmakers. While I'm all in favor of creative freedom, there must always be a compromise between both parties. Snyder didn't gain fame for badly editing his films for no reason. Army of the Dead is, like most of his movies, unnecessarily long. The \"deleted scenes\" feature on Blu-rays doesn't exist for show-off. There's no film in the history of cinema where every single second recorded is pure gold, and runtimes are something studios can *help* filmmakers nail perfectly. In the end, I still consider this movie to move quickly through its straightforward story, so the excess screentime might not be that big of an issue for other viewers.\r\n\r\nArmy of the Dead brings Zack Snyder back to the zombie apocalypse genre, delivering an entertaining, action-driven story that will please most spectators. With his distinct, divisive filmmaking style completely unrestrained, for better or worst, the standout Dave Bautista and his team fight through the cliches, lack of character development, and excessive runtime to still offer plenty of excitement. The lack of tension and urgency hurt some of the last action sequences, but all are well-shot and packed with energy. Exceptional production design and VFX aren't enough to compensate for the predictably formulaic screenplay, especially when the only interesting zombie storyline is only partially explored. Overall, it's the definition of \"good fun\", so if your weekend has a two-and-a-half-hour empty slot, Netflix has my endorsement.\r\n\r\nRating: B-",
+      created_at: '2021-05-22T22:34:23.079Z',
+      id: '60a986ef7f4f21002a909c9f',
+      updated_at: '2021-05-22T22:34:23.079Z',
+      url: 'https://www.themoviedb.org/review/60a986ef7f4f21002a909c9f',
+    },
+  ],
+  total_pages: 1,
+  total_results: 1,
+};
+
+export const castResponse = {
+  id: 503736,
+  cast: [
+    {
+      adult: false,
+      gender: 2,
+      id: 543530,
+      known_for_department: 'Acting',
+      name: 'Dave Bautista',
+      original_name: 'Dave Bautista',
+      popularity: 24.119,
+      profile_path: null,
+      cast_id: 8,
+      character: 'Scott Ward',
+      credit_id: '5ca7eb4e9251415662fcd481',
+      order: 0,
+    },
+    {
+      adult: false,
+      gender: 1,
+      id: 989325,
+      known_for_department: 'Acting',
+      name: 'Ella Purnell',
+      original_name: 'Ella Purnell',
+      popularity: 11.938,
+      profile_path: '/xIZojkBo3Cf0GnchjC8hSS5P105.jpg',
+      cast_id: 14,
+      character: 'Kate Ward',
+      credit_id: '5ced8b850e0a26286cca95f2',
+      order: 1,
+    },
+    {
+      adult: false,
+      gender: 2,
+      id: 41556,
+      known_for_department: 'Acting',
+      name: 'Omari Hardwick',
+      original_name: 'Omari Hardwick',
+      popularity: 15.586,
+      profile_path: '/2kROckfySgXMBa2nsCIDoR9R6gg.jpg',
+      cast_id: 26,
+      character: 'Vanderohe',
+      credit_id: '5d2d48a66a300b000fa1d9eb',
+      order: 2,
+    },
+    {
+      adult: false,
+      gender: 1,
+      id: 57409,
+      known_for_department: 'Acting',
+      name: 'Ana de la Reguera',
+      original_name: 'Ana de la Reguera',
+      popularity: 14.974,
+      profile_path: '/5ABHVktvlIMyfLCZo2sJsOIMQCo.jpg',
+      cast_id: 16,
+      character: 'Maria Cruz',
+      credit_id: '5ced91980e0a261bbbd24bbd',
+      order: 3,
+    },
+    {
+      adult: false,
+      gender: 2,
+      id: 51995,
+      known_for_department: 'Acting',
+      name: 'Theo Rossi',
+      original_name: 'Theo Rossi',
+      popularity: 8.967,
+      profile_path: '/7yHT7a1b3QAQaElX7aoVEoewy9N.jpg',
+      cast_id: 15,
+      character: 'Burt Cummings',
+      credit_id: '5ced9187c3a36851821fa90c',
+      order: 4,
+    },
+    {
+      adult: false,
+      gender: 2,
+      id: 16808,
+      known_for_department: 'Acting',
+      name: 'Matthias Schweighöfer',
+      original_name: 'Matthias Schweighöfer',
+      popularity: 6.297,
+      profile_path: '/wyos2SmpBUDjTz1A3EegL96hM2y.jpg',
+      cast_id: 31,
+      character: 'Ludwig Dieter',
+      credit_id: '5d2d49524975600011f06a23',
+      order: 5,
+    },
+  ],
 };

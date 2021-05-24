@@ -14,13 +14,13 @@ import Review from 'components/Review/Review';
 import s from './MovieAdditionalInfo.module.css';
 import request from 'service/apiRequest';
 
-const AdditionalMovieInfo = ({ filmData: { production_companies } }) => {
+const MovieAdditionalInfo = ({ filmData: { production_companies } }) => {
   const [reviewData, setReviewData] = useState(null);
   const [castData, setCastData] = useState(null);
 
+  const { state, pathname } = useLocation();
   const { url } = useRouteMatch();
   const { slug } = useParams();
-  const { state, pathname } = useLocation();
 
   const idFromSLug = slug.match(/[0-9a-zA-Z]+$/)[0];
 
@@ -98,4 +98,4 @@ const AdditionalMovieInfo = ({ filmData: { production_companies } }) => {
   );
 };
 
-export default AdditionalMovieInfo;
+export default MovieAdditionalInfo;

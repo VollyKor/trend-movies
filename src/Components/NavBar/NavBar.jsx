@@ -29,6 +29,16 @@ const NavBar = () => (
               Movies
             </NavLink>
           </li>
+
+          <li className={s.item}>
+            <NavLink
+              to="/table"
+              className={s.link}
+              activeClassName={s['active-link']}
+            >
+              Table
+            </NavLink>
+          </li>
         </ul>
         <SearchForm />
       </div>

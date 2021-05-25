@@ -2,11 +2,13 @@ import './App.css';
 import { lazy, useState, Suspense, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 
-import NotFoundView from 'components/NotFoundView/NotFoundView';
-import DownloadView from 'components/DownloadView/DownloadView';
-import EmptyView from 'components/EmptyView';
-import Container from 'components/Container';
-import Table from 'components/FilmsTable';
+import {
+  NotFoundView,
+  DownloadView,
+  EmptyView,
+  Container,
+  FilmsTable,
+} from 'components';
 
 import request from 'service/apiRequest';
 
@@ -48,7 +50,7 @@ const App = () => {
             <HomeView />
           </Route>
           <Route path="/table" exact>
-            <Table />
+            <FilmsTable />
           </Route>
 
           <Route path="/movies" exact>

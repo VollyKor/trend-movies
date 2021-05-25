@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import SearchForm from 'components/SearchForm/SearchForm';
-import Container from 'components/Container';
+import { SearchForm, Container } from 'components';
 
 import s from './NavBar.module.css';
 
@@ -20,6 +19,7 @@ const NavBar = () => (
               Home
             </NavLink>
           </li>
+
           <li className={s.item}>
             <NavLink
               to="/movies"

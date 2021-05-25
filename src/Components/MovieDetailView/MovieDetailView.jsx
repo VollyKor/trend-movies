@@ -1,14 +1,16 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import MovieAdditionalInfo from 'components/MovieAdditionalInfo/MovieAdditionalInfo';
-import GoBackButton from 'components/GoBackButton/GoBackButton';
-import NotFoundView from 'components/NotFoundView/NotFoundView';
-import DownloadView from 'components/DownloadView/DownloadView';
-import MovieCard from 'components/MovieCard/MovieCard';
-import EmptyView from 'components/EmptyView';
+import {
+  MovieAdditionalInfo,
+  GoBackButton,
+  NotFoundView,
+  DownloadView,
+  MovieCard,
+  EmptyView,
+} from 'components';
 
-import request from 'service/apiRequest';
+import req from 'service/apiRequest';
 
 export default function MovieDetailView() {
   const params = useParams();
@@ -22,7 +24,7 @@ export default function MovieDetailView() {
   useEffect(() => {
     setStatus('pending');
 
-    request
+    req
       .getFilmById(idFromSLug)
       .then(data => {
         setData(data);

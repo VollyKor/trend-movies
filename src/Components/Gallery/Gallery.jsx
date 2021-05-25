@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import slugify from 'slugify';
 
-import ItemCard from '../ItemCard/ItemCard';
+import { ItemCard } from 'components';
 
 import s from './Gallery.module.css';
 
@@ -10,24 +10,22 @@ const Gallery = ({ data }) => {
   return (
     <>
       <ul className={s.list}>
-        {data.map(e => {
-          return (
-            <li key={e.id} className={s.item}>
-              <Link
-                to={{
-                  pathname: `/movies/${slugify(`${e.title} ${e.id}`, {
-                    lower: true,
-                  })}`,
-                  state: { from: location },
-                }}
-                key={e.id}
-                className={s.link}
-              >
-                <ItemCard item={e} />
-              </Link>
-            </li>
-          );
-        })}
+        {data.map(e => (
+          <li key={e.id} className={s.item}>
+            <Link
+              to={{
+                pathname: `/movies/${slugify(`${e.title} ${e.id}`, {
+                  lower: true,
+                })}`,
+                state: { from: location },
+              }}
+              key={e.id}
+              className={s.link}
+            >
+              <ItemCard item={e} />
+            </Link>
+          </li>
+        ))}
       </ul>
     </>
   );

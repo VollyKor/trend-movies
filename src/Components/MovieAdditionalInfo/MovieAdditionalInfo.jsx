@@ -7,12 +7,10 @@ import {
   useLocation,
 } from 'react-router-dom';
 
-import ProductionCompanies from 'components/ProductionCompanies/ProductionCompanies';
-import ActorsList from 'components/ActorsList/ActorsList';
-import Review from 'components/Review/Review';
+import { ProductionCompanies, ActorsList, Review } from 'components';
 
 import s from './MovieAdditionalInfo.module.css';
-import request from 'service/apiRequest';
+import req from 'service/apiRequest';
 
 const MovieAdditionalInfo = ({ filmData: { production_companies } }) => {
   const [reviewData, setReviewData] = useState(null);
@@ -26,11 +24,11 @@ const MovieAdditionalInfo = ({ filmData: { production_companies } }) => {
 
   useEffect(() => {
     if (pathname === `${url}/reviews`) {
-      request.getReview(idFromSLug).then(data => setReviewData(data));
+      req.getReview(idFromSLug).then(data => setReviewData(data));
     }
 
     if (pathname === `${url}/cast`) {
-      request.getMovieCredits(idFromSLug).then(data => setCastData(data));
+      req.getMovieCredits(idFromSLug).then(data => setCastData(data));
     }
   }, [idFromSLug, pathname, url]);
 

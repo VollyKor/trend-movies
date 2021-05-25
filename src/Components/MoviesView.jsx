@@ -1,4 +1,4 @@
-import Gallery from 'components/Gallery/Gallery';
+import { Gallery } from 'components';
 
 const MoviesView = ({ data }) => data && <Gallery data={data.results} />;
 

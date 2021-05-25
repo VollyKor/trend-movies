@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
-import Gallery from 'components/Gallery/Gallery';
-import DownloadView from 'components/DownloadView/DownloadView';
-import NotFoundView from 'components/NotFoundView/NotFoundView';
+import { Gallery, DownloadView, NotFoundView } from 'components';
 
 import request from 'service/apiRequest';
 import s from './HomeView.module.css';

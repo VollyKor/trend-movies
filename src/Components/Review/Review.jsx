@@ -1,5 +1,4 @@
-import ReviewItem from 'components/ReviewItem/ReviewItem';
-import EmptyView from 'components/EmptyView';
+import { ReviewItem, EmptyView } from 'components';
 
 import s from './Review.module.css';
 

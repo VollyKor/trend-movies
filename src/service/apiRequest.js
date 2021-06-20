@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const apiRequest = {
-  // API_KEY: '9bc134247462ae6a5927de0341a3dea9',
-  API_KEY: '132f2a543c82d69a556f0bb280a697a7',
+  API_KEY: process.env.REACT_APP_TMBD_KEY,
   BASE_URL: 'https://api.themoviedb.org/3',
   page: 1,
   reviewPage: 1,
@@ -86,6 +85,20 @@ const apiRequest = {
     return axios.get(
       `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.API_KEY}&language=en-US`,
     );
+  },
+};
+
+export const statistic = {
+  BASE_URL: process.env.REACT_APP_API_HOST,
+
+  async send(filmData) {
+    try {
+      const res = await axios.post(`${this.BASE_URL}/statistic`, filmData);
+      const { resData } = res;
+      return resData;
+    } catch (error) {
+      throw error;
+    }
   },
 };
 

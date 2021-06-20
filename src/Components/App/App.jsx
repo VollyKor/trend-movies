@@ -1,6 +1,7 @@
 import './App.css';
 import { lazy, useState, Suspense, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 import {
   NotFoundView,
@@ -30,6 +31,15 @@ const NavBar = lazy(() =>
 const App = () => {
   const [data, setData] = useState(null);
   const location = useLocation();
+
+  useEffect(() => {
+    const userId = JSON.parse(localStorage.getItem('userId'));
+
+    if (userId === null) {
+      const newUserId = uuidv4();
+      localStorage.setItem('userId', JSON.stringify(newUserId));
+    }
+  }, []);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search).get('query');

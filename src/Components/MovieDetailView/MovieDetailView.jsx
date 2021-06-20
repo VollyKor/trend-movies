@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { statistic } from 'service/apiRequest';
 
 import {
   MovieAdditionalInfo,
@@ -28,9 +29,17 @@ export default function MovieDetailView() {
       .getFilmById(idFromSLug)
       .then(data => {
         setData(data);
+        statistic.send({
+          user: {
+            userId: JSON.parse(localStorage.getItem('userId')),
+          },
+          data: data,
+        });
+
         setStatus('resolved');
       })
-      .catch(() => {
+      .catch(err => {
+        console.error(err);
         setStatus('rejected');
       });
   }, [idFromSLug]);

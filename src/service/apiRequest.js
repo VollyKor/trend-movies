@@ -102,4 +102,17 @@ export const statistic = {
   },
 };
 
+export const auth = {
+  BASE_URL: process.env.REACT_APP_API_HOST,
+  async login(data) {
+    try {
+      const res = await axios.post(`${this.BASE_URL}/users/login`, data);
+      const { resData } = res;
+      return resData;
+    } catch (error) {
+      throw error;
+    }
+  },
+};
+
 export default apiRequest;

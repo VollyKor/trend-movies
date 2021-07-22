@@ -31,7 +31,6 @@ import {
   TableEditColumn,
   TableFilterRow,
   PagingPanel,
-  DragDropProvider,
   TableColumnReordering,
 } from '@devexpress/dx-react-grid-material-ui';
 

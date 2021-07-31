@@ -107,8 +107,20 @@ export const auth = {
   async login(data) {
     try {
       const res = await axios.post(`${this.BASE_URL}/users/login`, data);
-      const { resData } = res;
+      const { data: resData } = res;
       return resData;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  async checkToken(token) {
+    try {
+      const res = await axios.post(`${this.BASE_URL}/users/check-token`, '', {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const { data } = res;
+      return data;
     } catch (error) {
       throw error;
     }

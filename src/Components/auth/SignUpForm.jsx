@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/auth/auth.actions';
 import { TextField, makeStyles, Box, Button } from '@material-ui/core';
 
 import { auth } from 'service/apiRequest';
@@ -27,11 +29,13 @@ export default function SignUpForm(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const dipatch = useDispatch();
   const classes = useStyles();
 
   async function handleSubmit(e) {
     e.preventDefault();
-    await auth.login({ email, password });
+    dipatch(login({ username: email, password }));
+    // await auth.login({ username: email, password });
     props.onClose();
   }
 

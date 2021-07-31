@@ -1,6 +1,7 @@
 import { ButtonGroup, Button, Modal, makeStyles, Box } from '@material-ui/core';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { SearchForm, Container } from 'components';
 import SignUpForm from '../auth/SignUpForm';
@@ -21,6 +22,8 @@ const useStyle = makeStyles(theme => ({
 const NavBar = () => {
   const [open, setOpen] = useState(false);
   const classes = useStyle();
+  const dispatch = useDispatch();
+  const isLoggerIn = useSelector(state => state.auth.isLoggedIn);
 
   return (
     <header className={s.header}>
@@ -48,15 +51,17 @@ const NavBar = () => {
               </NavLink>
             </li>
 
-            <li className={s.item}>
-              <NavLink
-                to="/table"
-                className={s.link}
-                activeClassName={s['active-link']}
-              >
-                Table
-              </NavLink>
-            </li>
+            {isLoggerIn && (
+              <li className={s.item}>
+                <NavLink
+                  to="/table"
+                  className={s.link}
+                  activeClassName={s['active-link']}
+                >
+                  Table
+                </NavLink>
+              </li>
+            )}
           </ul>
           <SearchForm />
           <ButtonGroup
@@ -64,8 +69,8 @@ const NavBar = () => {
             color="primary"
             aria-label="contained primary button group"
           >
-            <Button onClick={() => setOpen(true)}>Log In</Button>
-            <Button>Sign Up</Button>
+            <Button>Log In</Button>
+            <Button onClick={() => setOpen(true)}>Sign Up</Button>
           </ButtonGroup>
         </div>
       </Container>

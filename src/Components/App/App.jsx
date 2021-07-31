@@ -1,7 +1,8 @@
 import { lazy, useState, Suspense, useEffect } from 'react';
-import './App.css';
 import { Route, Switch, useLocation } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+import { useDispatch } from 'react-redux';
+import { checkToken } from 'redux/auth/auth.actions';
+import './App.css';
 
 import {
   NotFoundView,
@@ -10,7 +11,6 @@ import {
   Container,
   FilmsTable,
 } from 'components';
-
 import request from 'service/apiRequest';
 
 const MoviesView = lazy(() =>
@@ -31,14 +31,13 @@ const NavBar = lazy(() =>
 const App = () => {
   const [data, setData] = useState(null);
   const location = useLocation();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const userId = JSON.parse(localStorage.getItem('userId'));
-
-    if (userId === null) {
-      const newUserId = uuidv4();
-      localStorage.setItem('userId', JSON.stringify(newUserId));
-    }
+    const token = localStorage.getItem('token');
+    // const apiKey = JSON.parse(localStorage.getItem('token'));
+    console.log(token);
+    if (token) dispatch(checkToken(token));
   }, []);
 
   useEffect(() => {

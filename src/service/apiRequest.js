@@ -113,6 +113,15 @@ export const auth = {
       throw error;
     }
   },
+  async signup(data) {
+    try {
+      const res = await axios.post(`${this.BASE_URL}/users/signup`, data);
+      const { data: resData } = res;
+      return resData;
+    } catch (error) {
+      throw error;
+    }
+  },
 
   async checkToken(token) {
     try {

@@ -1,16 +1,18 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import slugify from 'slugify';
 
 import { ItemCard } from 'components';
-
 import s from './Gallery.module.css';
 
-const Gallery = ({ data }) => {
+const Gallery = () => {
+  const movies = useSelector(state => state.movies.trendMovies);
   const location = useLocation();
+
   return (
     <>
       <ul className={s.list}>
-        {data.map(e => (
+        {movies.map(e => (
           <li key={e.id} className={s.item}>
             <Link
               to={{

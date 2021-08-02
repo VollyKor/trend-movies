@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { login } from 'redux/auth/auth.actions';
-import { TextField, makeStyles, Box, Button } from '@material-ui/core';
+import { makeStyles, Box, TextField, Button } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { auth } from 'service/apiRequest';
+import { setError, signup } from 'redux/auth/auth.actions';
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -25,18 +24,24 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignUpForm(props) {
+export default function SignupForm(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const dipatch = useDispatch();
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const error = useSelector(state => state.auth.error);
   const classes = useStyles();
+  const dispatch = useDispatch();
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    dipatch(login({ username: email, password }));
-    // await auth.login({ username: email, password });
-    props.onClose();
+    dispatch(setError());
+
+    if (password.length > 4 && password === confirmPassword) {
+      dispatch(signup({ email, password }));
+      props.onClose();
+    } else {
+      dispatch(setError({ message: 'validation failed' }));
+    }
   }
 
   return (
@@ -62,20 +67,26 @@ export default function SignUpForm(props) {
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
+
+        <TextField
+          type="password"
+          id="confirm-password"
+          label="repeat password"
+          value={confirmPassword}
+          onChange={e => setConfirmPassword(e.target.value)}
+        />
+        {error && <p>{error?.message}</p>}
+
         <Box className={classes.btnWrapper}>
           <Button
             color="secondary"
             className={classes.cancelButton}
             type="button"
+            onClick={() => props.onClose()}
           >
             Cancel
           </Button>
-          <Button
-            color="primary"
-            className={classes.submit}
-            type="submit"
-            // onClick={e => e.preventDefault()}
-          >
+          <Button color="primary" className={classes.submit} type="submit">
             Sign Up
           </Button>
         </Box>

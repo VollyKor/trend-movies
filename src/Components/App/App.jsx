@@ -1,6 +1,8 @@
 import { lazy, useState, Suspense, useEffect } from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Switch, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import PrivateRoute from 'components/Routes/PrivateRoute';
+import PublicRoute from 'components/Routes/PublicRoute';
 import { checkToken } from 'redux/auth/auth.actions';
 import './App.css';
 
@@ -12,6 +14,7 @@ import {
   FilmsTable,
 } from 'components';
 import request from 'service/apiRequest';
+import { searchFilms } from 'redux/movies/movies.actions';
 
 const MoviesView = lazy(() =>
   import('components/MoviesView' /* webpackChunkName: 'MoviesView' */),
@@ -30,13 +33,15 @@ const NavBar = lazy(() =>
 
 const App = () => {
   const [data, setData] = useState(null);
+  const movies = useSelector(state => state.movies.trendMovies);
+  // const trendMovies = useSelector(state => state.movies.trendMovies);
   const location = useLocation();
   const dispatch = useDispatch();
 
+  console.log('movies', movies);
+
   useEffect(() => {
     const token = localStorage.getItem('token');
-    // const apiKey = JSON.parse(localStorage.getItem('token'));
-    console.log(token);
     if (token) dispatch(checkToken(token));
   }, []);
 
@@ -44,40 +49,38 @@ const App = () => {
     const searchParams = new URLSearchParams(location.search).get('query');
 
     if (searchParams !== null) {
-      request.searchFilms(searchParams).then(data => {
-        setData(data);
-      });
+      dispatch(searchFilms(searchParams));
     }
-  }, [location.search]);
+  }, [dispatch, location.search]);
 
   return (
     <Suspense fallback={<DownloadView />}>
       <NavBar />
       <Container>
         <Switch>
-          <Route path="/" exact>
+          <PublicRoute path="/" exact>
             <HomeView />
-          </Route>
-          <Route path="/table" exact>
+          </PublicRoute>
+          <PrivateRoute path="/table" redirectTo="/" exact>
             <FilmsTable />
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/movies" exact>
+          <PublicRoute path="/movies" exact>
             {!data && <EmptyView />}
             {data && (
               <>
-                <MoviesView data={data} />
+                <MoviesView data={movies} />
               </>
             )}
-          </Route>
+          </PublicRoute>
 
-          <Route path="/movies/:slug">
+          <PublicRoute path="/movies/:slug">
             <MovieDetailView />
-          </Route>
+          </PublicRoute>
 
-          <Route>
+          <PublicRoute>
             <NotFoundView />
-          </Route>
+          </PublicRoute>
         </Switch>
       </Container>
     </Suspense>

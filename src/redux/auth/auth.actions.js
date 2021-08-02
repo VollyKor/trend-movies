@@ -1,4 +1,4 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { auth } from 'service/apiRequest';
 
 export const login = createAsyncThunk('auth/login', async data => {
@@ -11,33 +11,23 @@ export const login = createAsyncThunk('auth/login', async data => {
 
 export const checkToken = createAsyncThunk('auth/checkToken', async token => {
   try {
-    const response = await auth.checkToken(token);
-    return response.data;
+    return await auth.checkToken(token);
   } catch (error) {
     throw new Error(error.message);
   }
 });
 
-export const logout = createAsyncThunk(
-  'auth/logout',
-  async (data, thunkAPI) => {
-    try {
-      const response = await auth.login(data);
-      return response.data;
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  },
-);
+export const logout = createAsyncThunk('auth/logout', async () => {
+  return '';
+});
 
-export const signup = createAsyncThunk(
-  'auth/signup',
-  async (data, thunkAPI) => {
-    try {
-      const response = await auth.login(data);
-      return response.data;
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  },
-);
+export const signup = createAsyncThunk('auth/signup', async data => {
+  try {
+    const response = await auth.signup(data);
+    return response;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+});
+
+export const setError = createAction('auth/error');

@@ -1,35 +1,24 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 
+import { getTrendMovies, setPage } from 'redux/movies/movies.actions';
 import { Gallery, DownloadView, NotFoundView } from 'components';
-
-import request from 'service/apiRequest';
 import s from './HomeView.module.css';
 
 export default function HomeView() {
-  const [currentPage, setCurrentPage] = useState(1);
   const [status, setStatus] = useState('idle');
-  const [data, setData] = useState([]);
 
-  const { total_pages, results } = data;
-
-  const HandleChange = e => {
-    setCurrentPage(e.selected + 1);
-  };
+  const dispatch = useDispatch();
+  const movies = useSelector(({ movies }) => movies);
+  const { totalPages, trendMovies, page } = movies;
 
   useEffect(() => {
     setStatus('pending');
-    request
-      .getTrendFilms(currentPage)
-      .then(data => {
-        setData(data);
 
-        data.results.length > 0 ? setStatus('resolved') : setStatus('rejected');
-      })
-      .catch(() => {
-        setStatus('rejected');
-      });
-  }, [currentPage]);
+    dispatch(getTrendMovies(page));
+    trendMovies.length > 0 ? setStatus('resolved') : setStatus('rejected');
+  }, [page, dispatch, trendMovies.length]);
 
   switch (status) {
     case 'pending':
@@ -37,15 +26,15 @@ export default function HomeView() {
     case 'resolved':
       return (
         <>
-          <Gallery data={results} />
+          <Gallery />
 
           <ReactPaginate
-            pageCount={total_pages}
+            pageCount={totalPages}
             pageRangeDisplayed={3}
             marginPagesDisplayed={1}
-            initialPage={currentPage - 1}
+            initialPage={page - 1}
             disableInitialCallback
-            onPageChange={HandleChange}
+            onPageChange={e => dispatch(setPage(e.selected + 1))}
             containerClassName={s.pagination}
             pageClassName={s.page_item}
             activeClassName={s.page_item__active}

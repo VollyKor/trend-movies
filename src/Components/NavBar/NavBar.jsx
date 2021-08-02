@@ -4,7 +4,10 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { SearchForm, Container } from 'components';
-import SignUpForm from '../auth/SignUpForm';
+import SignUpForm from '../auth/SignupForm';
+import LoginForm from '../auth/LoginForm';
+
+import { logout } from 'redux/auth/auth.actions';
 
 import s from './NavBar.module.css';
 
@@ -20,8 +23,10 @@ const useStyle = makeStyles(theme => ({
 }));
 
 const NavBar = () => {
-  const [open, setOpen] = useState(false);
+  const [isOpenLoginForm, setIsOpenLoginForm] = useState(false);
+  const [isOpenSignupForm, setIsOpenSignupForm] = useState(false);
   const classes = useStyle();
+
   const dispatch = useDispatch();
   const isLoggerIn = useSelector(state => state.auth.isLoggedIn);
 
@@ -63,25 +68,51 @@ const NavBar = () => {
               </li>
             )}
           </ul>
+
           <SearchForm />
-          <ButtonGroup
-            variant="contained"
-            color="primary"
-            aria-label="contained primary button group"
-          >
-            <Button>Log In</Button>
-            <Button onClick={() => setOpen(true)}>Sign Up</Button>
-          </ButtonGroup>
+          {isLoggerIn ? (
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                dispatch(logout());
+              }}
+            >
+              Log Out
+            </Button>
+          ) : (
+            <ButtonGroup
+              variant="contained"
+              color="primary"
+              aria-label="contained primary button group"
+            >
+              <Button onClick={() => setIsOpenLoginForm(true)}>Log In</Button>
+              <Button onClick={() => setIsOpenSignupForm(true)}>Sign Up</Button>
+            </ButtonGroup>
+          )}
         </div>
       </Container>
       <Modal
-        open={open}
-        onClose={() => setOpen(false)}
+        open={isOpenSignupForm}
+        onClose={() => setIsOpenSignupForm(false)}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
         <Box className={classes.wrapper}>
-          <SignUpForm onClose={() => setOpen(false)} />
+          <SignUpForm onClose={() => setIsOpenSignupForm(false)} />
+        </Box>
+      </Modal>
+
+      <Modal
+        open={isOpenLoginForm}
+        onClose={() => {
+          setIsOpenLoginForm(false);
+        }}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        <Box className={classes.wrapper}>
+          <LoginForm onClose={() => setIsOpenLoginForm(false)} />
         </Box>
       </Modal>
     </header>

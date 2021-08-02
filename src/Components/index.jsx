@@ -18,4 +18,3 @@ export { default as SearchForm } from './SearchForm/SearchForm';
 export { default as Container } from './Container';
 export { default as EmptyView } from './EmptyView';
 export { default as FilmsTable } from './FilmsTable';
-export { default as MoviesView } from './MoviesView';

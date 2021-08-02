@@ -13,11 +13,11 @@ import {
   Container,
   FilmsTable,
 } from 'components';
-import request from 'service/apiRequest';
+
 import { searchFilms } from 'redux/movies/movies.actions';
 
-const MoviesView = lazy(() =>
-  import('components/MoviesView' /* webpackChunkName: 'MoviesView' */),
+const Gallery = lazy(() =>
+  import('components/Gallery/Gallery' /* webpackChunkName: 'MoviesView' */),
 );
 const HomeView = lazy(() =>
   import('components/HomeView/HomeView' /* webpackChunkName: 'HomeView' */),
@@ -32,18 +32,15 @@ const NavBar = lazy(() =>
 );
 
 const App = () => {
-  const [data, setData] = useState(null);
   const movies = useSelector(state => state.movies.trendMovies);
-  // const trendMovies = useSelector(state => state.movies.trendMovies);
+
   const location = useLocation();
   const dispatch = useDispatch();
-
-  console.log('movies', movies);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) dispatch(checkToken(token));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search).get('query');
@@ -66,12 +63,7 @@ const App = () => {
           </PrivateRoute>
 
           <PublicRoute path="/movies" exact>
-            {!data && <EmptyView />}
-            {data && (
-              <>
-                <MoviesView data={movies} />
-              </>
-            )}
+            {movies ? <Gallery /> : <EmptyView />}
           </PublicRoute>
 
           <PublicRoute path="/movies/:slug">

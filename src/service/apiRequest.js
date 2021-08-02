@@ -88,12 +88,17 @@ const apiRequest = {
   },
 };
 
-export const statistic = {
-  BASE_URL: process.env.REACT_APP_API_HOST,
+export const BackEndAPi = axios.create({
+  baseURL: process.env.REACT_APP_API_HOST,
+});
 
-  async send(filmData) {
+export const statistic = {
+  async send(userData, filmData) {
     try {
-      const res = await axios.post(`${this.BASE_URL}/statistic`, filmData);
+      const res = await BackEndAPi.post(`/statistic`, {
+        user: userData,
+        data: filmData,
+      });
       const { resData } = res;
       return resData;
     } catch (error) {
@@ -103,11 +108,16 @@ export const statistic = {
 };
 
 export const auth = {
-  BASE_URL: process.env.REACT_APP_API_HOST,
   async login(data) {
     try {
-      const res = await axios.post(`${this.BASE_URL}/users/login`, data);
+      const res = await BackEndAPi.post(`/users/login`, data);
       const { data: resData } = res;
+      console.log(resData);
+      if (resData?.accessToken) {
+        BackEndAPi.defaults.headers = {
+          Authorization: `Bearer ${resData?.accessToken}`,
+        };
+      }
       return resData;
     } catch (error) {
       throw error;
@@ -115,7 +125,7 @@ export const auth = {
   },
   async signup(data) {
     try {
-      const res = await axios.post(`${this.BASE_URL}/users/signup`, data);
+      const res = await BackEndAPi.post(`/users/signup`, data);
       const { data: resData } = res;
       return resData;
     } catch (error) {

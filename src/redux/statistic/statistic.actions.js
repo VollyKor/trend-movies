@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import apiRequest, { statistic } from 'service/apiRequest';
-import { BackEndAPi } from 'service/apiRequest';
+import { statistic } from 'service/proxyWrapper';
 
 export const statisticHandler = createAsyncThunk(
   'statistic/handler',

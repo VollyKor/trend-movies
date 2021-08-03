@@ -3,13 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import slugify from 'slugify';
 
 import { ItemCard } from 'components';
-import { statisticHandler } from 'redux/statistic/statistic.actions';
 import s from './Gallery.module.css';
 
 const Gallery = () => {
   const movies = useSelector(state => state.movies.trendMovies);
   const location = useLocation();
-  const dispatch = useDispatch();
 
   return (
     <>
@@ -17,7 +15,6 @@ const Gallery = () => {
         {movies.map(el => (
           <li key={el.id} className={s.item}>
             <Link
-              onClick={() => dispatch(statisticHandler(el))}
               to={{
                 pathname: `/movies/${slugify(`${el.title} ${el.id}`, {
                   lower: true,

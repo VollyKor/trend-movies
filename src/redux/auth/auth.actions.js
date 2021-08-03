@@ -1,9 +1,12 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
-import { auth } from 'service/apiRequest';
+import { auth } from 'service/proxyWrapper';
+import { token } from 'service/proxyWrapper';
 
 export const login = createAsyncThunk('auth/login', async data => {
   try {
-    return await auth.login(data);
+    const response = await auth.login(data);
+    token.set(response.accessToken);
+    return response;
   } catch (error) {
     throw new Error(error.message);
   }
@@ -18,6 +21,7 @@ export const checkToken = createAsyncThunk('auth/checkToken', async token => {
 });
 
 export const logout = createAsyncThunk('auth/logout', async () => {
+  token.set(null);
   return '';
 });
 

@@ -16,9 +16,9 @@ export const counterSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(login.fulfilled, (state, { payload }) => {
+        localStorage.setItem('token', payload.accessToken);
         state.token = payload.accessToken;
         state.isLoggedIn = true;
-        localStorage.setItem('token', payload.accessToken);
       })
       .addCase(checkToken.fulfilled, (state, { payload }) => {
         state.token = localStorage.getItem('token');

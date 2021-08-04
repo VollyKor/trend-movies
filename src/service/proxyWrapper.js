@@ -62,3 +62,27 @@ export const auth = {
     }
   },
 };
+
+export const rating = {
+  async getAll() {
+    try {
+      BackEndAPi.get('/rating/');
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  async handleRating(data) {
+    try {
+      BackEndAPi.post('/rating/handle', data);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  async getAverageRating(filmId) {
+    try {
+      BackEndAPi.get(`/rating/average/${filmId}`);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+};

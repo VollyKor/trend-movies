@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import authReducer from 'redux/auth/auth.slice';
 import moviesReducer from 'redux/movies/movies.slice';
 import statisticReducer from 'redux/statistic/statistic.slice';
+import ratingReducer from 'redux/rating/rating.slice';
 import thunk from 'redux-thunk';
 
 export const store = configureStore({
@@ -9,6 +10,7 @@ export const store = configureStore({
     auth: authReducer,
     movies: moviesReducer,
     statistic: statisticReducer,
+    rating: ratingReducer,
   },
   middleware: getDefaultMiddleware => [...getDefaultMiddleware(), thunk],
 });

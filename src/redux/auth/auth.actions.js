@@ -5,6 +5,7 @@ import { token } from 'service/proxyWrapper';
 export const login = createAsyncThunk('auth/login', async data => {
   try {
     const response = await auth.login(data);
+    console.log(response);
     token.set(response.accessToken);
     return response;
   } catch (error) {
@@ -12,9 +13,10 @@ export const login = createAsyncThunk('auth/login', async data => {
   }
 });
 
-export const checkToken = createAsyncThunk('auth/checkToken', async token => {
+export const checkToken = createAsyncThunk('auth/checkToken', async key => {
   try {
-    return await auth.checkToken(token);
+    await auth.checkToken(key);
+    token.set(key);
   } catch (error) {
     throw new Error(error.message);
   }

@@ -6,10 +6,10 @@ const BackEndAPi = axios.create({
 
 export const token = {
   set(token) {
-    BackEndAPi.defaults.headers.common.Authorization = `Bearer ${token}`;
+    BackEndAPi.defaults.headers.Authorization = `Bearer ${token}`;
   },
   unset() {
-    BackEndAPi.defaults.headers.common.Authorization = null;
+    BackEndAPi.defaults.headers.Authorization = null;
   },
 };
 
@@ -66,7 +66,7 @@ export const auth = {
 export const rating = {
   async getAll() {
     try {
-      BackEndAPi.get('/rating/');
+      BackEndAPi.get('/rating');
     } catch (error) {
       console.error(error);
     }

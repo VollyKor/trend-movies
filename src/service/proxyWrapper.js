@@ -66,14 +66,16 @@ export const auth = {
 export const rating = {
   async getAll() {
     try {
-      BackEndAPi.get('/rating');
+      const response = await BackEndAPi.get('/rating');
+      return response.data;
     } catch (error) {
       console.error(error);
     }
   },
   async handleRating(data) {
     try {
-      BackEndAPi.post('/rating/handle', data);
+      const response = BackEndAPi.post('/rating/handle', data);
+      return response.data;
     } catch (error) {
       console.error(error);
     }

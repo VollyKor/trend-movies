@@ -10,10 +10,15 @@ export const getAllRating = createAsyncThunk('getAll', async () => {
   }
 });
 
-export const handleRating = createAsyncThunk('handle', async data => {
+export const handleRating = createAsyncThunk('handle', async film => {
   try {
-    const result = await rating.handleRating(data);
-    return result;
+    const filmData = {
+      filmId: film.filmId,
+      rating: film.rating,
+    };
+
+    await rating.handleRating(filmData);
+    return filmData;
   } catch (error) {
     console.error(error);
   }

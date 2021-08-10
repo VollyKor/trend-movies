@@ -13,12 +13,19 @@ export const ratingSlice = createSlice({
     builder
       .addCase(getAllRating.fulfilled, (state, { payload }) => {
         console.log('getAllRating', payload);
+        state.moviesArr = payload;
       })
       .addCase(getAverageRating.fulfilled, (state, { payload }) => {
         console.log('getAllRating', payload);
       })
       .addCase(handleRating.fulfilled, (state, { payload }) => {
-        console.log('getAllRating', payload);
+        const newArr = state.moviesArr.map(film => {
+          if (film.film_id === `${payload.filmId}`) {
+            return { ...film, rating: payload.rating };
+          }
+          return film;
+        });
+        state.moviesArr = newArr;
       });
   },
 });

@@ -11,7 +11,7 @@ import empteImgURL from 'Images/imgPlaceholder.png';
 import { statisticHandler } from 'redux/statistic/statistic.actions';
 import { getAllRating, handleRating } from 'redux/rating/rating.actions';
 
-const FilmView = ({ data }) => {
+const FilmView = ({ data: film }) => {
   const {
     backdrop_path,
     title = 'Unknown',
@@ -19,17 +19,29 @@ const FilmView = ({ data }) => {
     vote_average,
     overview,
     genres,
-  } = data;
+    id,
+  } = film;
 
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const filmRating = useSelector(state =>
+    state.rating.moviesArr.find(film => `${id}` === film.film_id),
+  );
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(statisticHandler(data));
-    dispatch(getAllRating());
-  }, [data, dispatch]);
+    if (isLoggedIn) {
+      dispatch(statisticHandler(film));
+      dispatch(getAllRating());
+    }
+  }, [isLoggedIn, dispatch, film]);
 
   function setRating(e) {
-    dispatch(handleRating({}));
+    dispatch(
+      handleRating({
+        rating: parseInt(e.target.value, 10),
+        filmId: id,
+      }),
+    );
   }
 
   return (
@@ -67,28 +79,35 @@ const FilmView = ({ data }) => {
             ))}
           </ul>
           <Box className={s.ratingWrapper}>
+            <Box component="fieldset" p={0} mb={1} borderColor="transparent">
+              <Typography component="legend">
+                Average site users Rating
+              </Typography>
+              <Rating
+                name="read-only"
+                // value={Number.parseFloat(filmRating)}
+                readOnly
+              />
+            </Box>
+
             {isLoggedIn ? (
-              <Box component="fieldset" p={0} mb={1} borderColor="transparent">
-                <Typography component="legend">
-                  Average site users Rating
-                </Typography>
-                <Rating name="read-only" value={3} readOnly />
+              <Box component="fieldset" mb={1} borderColor="transparent">
+                <Typography component="legend">Your Rating</Typography>
+                {filmRating && (
+                  <Rating
+                    onChange={e => setRating(e)}
+                    name="rating"
+                    value={filmRating.rating}
+                    getLabelText={value => customIcons[value].label}
+                    IconContainerComponent={IconContainer}
+                  />
+                )}
               </Box>
             ) : (
               <Box>
                 <p>Log in to set your rating</p>
               </Box>
             )}
-            <Box component="fieldset" mb={1} borderColor="transparent">
-              <Typography component="legend">Your Rating</Typography>
-              <Rating
-                onClick={setRating}
-                name="customized-icons"
-                defaultValue={3}
-                getLabelText={value => customIcons[value].label}
-                IconContainerComponent={IconContainer}
-              />
-            </Box>
           </Box>
         </div>
       </div>

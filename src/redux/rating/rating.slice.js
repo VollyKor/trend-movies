@@ -16,15 +16,31 @@ export const ratingSlice = createSlice({
         state.moviesArr = payload;
       })
       .addCase(getAverageRating.fulfilled, (state, { payload }) => {
-        console.log('getAllRating', payload);
+        console.log('getAverageRating', payload);
+        return {
+          averageRating: payload.averageRating,
+          moviesArr: state.moviesArr,
+        };
       })
       .addCase(handleRating.fulfilled, (state, { payload }) => {
-        const newArr = state.moviesArr.map(film => {
-          if (film.film_id === `${payload.filmId}`) {
-            return { ...film, rating: payload.rating };
-          }
-          return film;
-        });
+        let newArr = state.moviesArr;
+        console.log('payload', payload);
+        console.log('newArr', newArr);
+
+        const isExist = state.moviesArr.some(
+          movie => movie.film_id === payload.film_id,
+        );
+
+        if (isExist) {
+          newArr = state.moviesArr.map(movie => {
+            if (movie.film_id === payload.film_id) return payload;
+            return movie;
+          });
+          state.moviesArr = newArr;
+          return;
+        }
+
+        newArr.push(payload);
         state.moviesArr = newArr;
       });
   },

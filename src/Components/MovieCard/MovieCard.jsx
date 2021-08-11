@@ -9,7 +9,11 @@ import IconContainer from './iconConteiner';
 import s from './MovieCard.module.css';
 import empteImgURL from 'Images/imgPlaceholder.png';
 import { statisticHandler } from 'redux/statistic/statistic.actions';
-import { getAllRating, handleRating } from 'redux/rating/rating.actions';
+import {
+  getAllRating,
+  getAverageRating,
+  handleRating,
+} from 'redux/rating/rating.actions';
 
 const FilmView = ({ data: film }) => {
   const {
@@ -23,17 +27,19 @@ const FilmView = ({ data: film }) => {
   } = film;
 
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const averageRating = useSelector(state => state.rating.averageRating);
   const filmRating = useSelector(state =>
     state.rating.moviesArr.find(film => `${id}` === film.film_id),
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(getAverageRating(id));
     if (isLoggedIn) {
       dispatch(statisticHandler(film));
       dispatch(getAllRating());
     }
-  }, [isLoggedIn, dispatch, film]);
+  }, [isLoggedIn, dispatch, film, id]);
 
   function setRating(e) {
     dispatch(
@@ -43,6 +49,8 @@ const FilmView = ({ data: film }) => {
       }),
     );
   }
+
+  console.log('averageRating', averageRating);
 
   return (
     <>
@@ -83,25 +91,19 @@ const FilmView = ({ data: film }) => {
               <Typography component="legend">
                 Average site users Rating
               </Typography>
-              <Rating
-                name="read-only"
-                // value={Number.parseFloat(filmRating)}
-                readOnly
-              />
+              <Rating name="read-only" value={averageRating || 0} readOnly />
             </Box>
 
             {isLoggedIn ? (
               <Box component="fieldset" mb={1} borderColor="transparent">
                 <Typography component="legend">Your Rating</Typography>
-                {filmRating && (
-                  <Rating
-                    onChange={e => setRating(e)}
-                    name="rating"
-                    value={filmRating.rating}
-                    getLabelText={value => customIcons[value].label}
-                    IconContainerComponent={IconContainer}
-                  />
-                )}
+                <Rating
+                  onChange={e => setRating(e)}
+                  name="rating"
+                  value={filmRating?.rating || 0}
+                  getLabelText={value => customIcons[value].label}
+                  IconContainerComponent={IconContainer}
+                />
               </Box>
             ) : (
               <Box>

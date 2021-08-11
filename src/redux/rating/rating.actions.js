@@ -17,8 +17,8 @@ export const handleRating = createAsyncThunk('handle', async film => {
       rating: film.rating,
     };
 
-    await rating.handleRating(filmData);
-    return filmData;
+    const data = await rating.handleRating(filmData);
+    return data;
   } catch (error) {
     console.error(error);
   }

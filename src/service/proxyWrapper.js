@@ -74,7 +74,7 @@ export const rating = {
   },
   async handleRating(data) {
     try {
-      const response = BackEndAPi.post('/rating/handle', data);
+      const response = await BackEndAPi.post('/rating/handle', data);
       return response.data;
     } catch (error) {
       console.error(error);
@@ -82,7 +82,8 @@ export const rating = {
   },
   async getAverageRating(filmId) {
     try {
-      BackEndAPi.get(`/rating/average/${filmId}`);
+      const response = await BackEndAPi.get(`/rating/average/${filmId}`);
+      return response.data;
     } catch (error) {
       console.error(error);
     }

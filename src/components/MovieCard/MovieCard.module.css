@@ -1,0 +1,62 @@
+.flex {
+  display: flex;
+}
+
+.desc {
+  margin-left: 15px;
+}
+
+.list-item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.subtitle {
+  margin-bottom: 0;
+}
+
+.release_date {
+  display: inline-block;
+  padding: 5px;
+}
+
+.span {
+  display: inline-block;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 3px;
+  background-color: var(--react-main-color);
+}
+
+.descr {
+  color: var(--react-accent-color);
+}
+.descr::first-letter {
+  margin-left: 15px;
+}
+
+.genres {
+  padding: 4px 6px;
+  background-color: var(--react-accent-color);
+  border-radius: 3px;
+  color: white;
+  pointer-events: none;
+}
+
+.img {
+  max-width: 500px;
+  max-height: 100%;
+}
+
+.emptyImg {
+  max-width: 500px;
+  max-height: 100%;
+}
+
+.overview {
+  text-align: center;
+}
+
+.ratingWrapper {
+  display: flex;
+  justify-content: space-around;
+}

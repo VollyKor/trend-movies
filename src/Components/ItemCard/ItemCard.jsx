@@ -1,5 +1,3 @@
-import { useSelector, useDispatch } from 'react-redux';
-
 import s from './ItemCard.module.css';
 import empteImgURL from 'Images/imgPlaceholder.png';
 

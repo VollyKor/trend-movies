@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import slugify from 'slugify';
 
 import { ItemCard } from 'components';

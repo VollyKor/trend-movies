@@ -3,8 +3,6 @@ import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/auth.actions';
 import { TextField, makeStyles, Box, Button } from '@material-ui/core';
 
-import { auth } from 'service/apiRequest';
-
 const useStyles = makeStyles(theme => ({
   form: {
     maxWidth: 400,

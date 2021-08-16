@@ -1,0 +1,22 @@
+.backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* .spinner{
+    animation-name: ;
+} */
+
+.imgContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img {
+  width: 500px;
+  height: 500px;
+}

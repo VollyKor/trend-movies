@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  /* margin-right: auto; */
+}
+.item {
+  text-align: center;
+
+  min-width: 100px;
+}
+.item:not(:last-child) {
+  margin-right: 15px;
+}
+.item:focus {
+  border: none;
+}
+
+.link:hover,
+.link:focus {
+  border: 2px solid var(--react-main-color);
+}
+
+.link {
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  color: white;
+}
+.active-link {
+  /* color: white; */
+  color: #212121;
+  background-color: var(--react-main-color);
+}

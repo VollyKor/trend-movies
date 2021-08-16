@@ -1,0 +1,63 @@
+.form {
+  padding: 10px 0;
+  margin-right: 15px;
+}
+
+.label {
+  position: relative;
+}
+
+.icon {
+  /* position: absolute; */
+  width: 18px;
+  height: 18px;
+  fill: white;
+  /* transform: translateY(-50%); */
+}
+
+.input {
+  margin: 0 auto;
+  padding: 2px 0px 2px 26px;
+
+  height: 20px;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+.input:hover,
+.input:focus {
+  outline: none;
+  border: 2px solid var(--react-main-color);
+}
+
+.button {
+  position: absolute;
+  left: 93px;
+  top: 1px;
+
+  padding: 2px;
+  background-color: transparent;
+  border: none;
+  pointer-events: none;
+}
+
+.button:hover,
+.button:focus {
+  outline: none;
+}
+
+.input:hover ~ .button > .icon,
+.input:focus ~ .button > .icon,
+.button:hover .icon,
+.button:focus .icon {
+  outline: none;
+  fill: var(--react-main-color);
+}
+
+.inputDescr {
+  display: inline-block;
+  margin-right: 10px;
+
+  color: var(--react-main-color);
+}

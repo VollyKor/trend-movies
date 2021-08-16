@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { SearchForm, Container } from 'components';
-import SignUpForm from '../auth/SignupForm';
-import LoginForm from '../auth/LoginForm';
+import SignUpForm from 'components/auth/SignUpForm';
+import LoginForm from 'components/auth/LoginForm';
 
 import { logout } from 'redux/auth/auth.actions';
 

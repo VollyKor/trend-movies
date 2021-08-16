@@ -1,6 +1,7 @@
-import { lazy, useState, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Switch, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+
 import PrivateRoute from 'components/Routes/PrivateRoute';
 import PublicRoute from 'components/Routes/PublicRoute';
 import { checkToken } from 'redux/auth/auth.actions';

@@ -5,15 +5,15 @@ import Rating from '@material-ui/lab/Rating';
 
 import customIcons from './customIcons';
 import IconContainer from './iconConteiner';
-
-import s from './MovieCard.module.css';
-import empteImgURL from 'Images/imgPlaceholder.png';
 import { statisticHandler } from 'redux/statistic/statistic.actions';
 import {
   getAllRating,
   getAverageRating,
   handleRating,
 } from 'redux/rating/rating.actions';
+
+import s from './MovieCard.module.css';
+import empteImgURL from 'Images/imgPlaceholder.png';
 
 const FilmView = ({ data: film }) => {
   const {

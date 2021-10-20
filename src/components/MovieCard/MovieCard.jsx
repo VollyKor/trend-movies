@@ -5,7 +5,6 @@ import Rating from '@material-ui/lab/Rating';
 
 import customIcons from './customIcons';
 import IconContainer from './iconConteiner';
-import { statisticHandler } from 'redux/statistic/statistic.actions';
 import {
   getAllRating,
   getAverageRating,
@@ -16,6 +15,7 @@ import s from './MovieCard.module.css';
 import empteImgURL from 'Images/imgPlaceholder.png';
 
 const FilmView = ({ data: film }) => {
+  const dispatch = useDispatch();
   const {
     backdrop_path,
     title = 'Unknown',
@@ -31,12 +31,10 @@ const FilmView = ({ data: film }) => {
   const filmRating = useSelector(state =>
     state.rating.moviesArr.find(film => `${id}` === film.film_id),
   );
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAverageRating(id));
     if (isLoggedIn) {
-      dispatch(statisticHandler(film));
       dispatch(getAllRating());
     }
   }, [isLoggedIn, dispatch, film, id]);
@@ -49,8 +47,6 @@ const FilmView = ({ data: film }) => {
       }),
     );
   }
-
-  console.log('averageRating', averageRating);
 
   return (
     <>

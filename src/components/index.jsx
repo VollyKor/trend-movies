@@ -1,4 +1,3 @@
-export { default as ActorsList } from './ActorsList/ActorsList';
 export { default as App } from './App/App';
 export { default as DownloadView } from './DownloadView/DownloadView';
 export { default as Gallery } from './Gallery/Gallery';
@@ -17,4 +16,4 @@ export { default as ReviewItem } from './ReviewItem/ReviewItem';
 export { default as SearchForm } from './SearchForm/SearchForm';
 export { default as Container } from './Container';
 export { default as EmptyView } from './EmptyView';
-export { default as FilmsTable } from './FilmsTable';
+export { default as ActorsList } from './ActorsList';

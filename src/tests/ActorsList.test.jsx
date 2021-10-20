@@ -1,4 +1,4 @@
-import ActorsList from 'components/ActorsList/ActorsList';
+import ActorsList from 'components/ActorsList';
 
 import { castResponse } from './mock/data';
 import renderWithRouter from './utils/routeWrapper';

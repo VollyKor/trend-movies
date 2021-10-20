@@ -1,8 +1,52 @@
 import { useState } from 'react';
+import { styled, alpha } from '@material-ui/core/styles';
+import { InputBase } from '@material-ui/core';
 import { useHistory, useLocation } from 'react-router-dom';
-import { BsSearch as Icon } from 'react-icons/bs';
+import { BsSearch as SearchIcon } from 'react-icons/bs';
 
-import s from './SearchForm.module.css';
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'inherit',
+  paddingLeft: '30px',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '12ch',
+      '&:focus': {
+        width: '20ch',
+      },
+    },
+  },
+}));
+
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.3),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.3),
+  },
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(3),
+    width: 'auto',
+  },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 1),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
 
 const SearchForm = () => {
   const history = useHistory();
@@ -26,20 +70,18 @@ const SearchForm = () => {
 
   return (
     <>
-      <form className={s.form} onSubmit={handleSubmit}>
-        <label className={s.label}>
-          <span className={s.inputDescr}>Search Film</span>
-          <input
-            className={s.input}
-            type="text"
-            placeholder="write something"
+      <form onSubmit={handleSubmit}>
+        <Search>
+          <SearchIconWrapper>
+            <SearchIcon />
+          </SearchIconWrapper>
+          <StyledInputBase
+            placeholder="Search…"
+            inputProps={{ 'aria-label': 'search' }}
             onChange={({ target: { value } }) => setQuery(value)}
             value={query}
           />
-          <button className={s.button} type="submit">
-            <Icon aria-label="Search Icom" className={s.icon} />
-          </button>
-        </label>
+        </Search>
       </form>
     </>
   );

@@ -1,34 +1,20 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { rating } from 'service/proxyWrapper';
+import { createAsyncThunk as thunk } from '@reduxjs/toolkit';
 
-export const getAllRating = createAsyncThunk('getAll', async () => {
-  try {
-    const result = await rating.getAll();
-    return result;
-  } catch (error) {
-    console.error(error);
-  }
+import apiRequest from 'service/apiRequest';
+
+export const getAllRating = thunk('getAll', async () => {
+  return apiRequest.getAll();
 });
 
-export const handleRating = createAsyncThunk('handle', async film => {
-  try {
-    const filmData = {
-      filmId: film.filmId,
-      rating: film.rating,
-    };
+export const handleRating = thunk('handle', async film => {
+  const filmData = {
+    filmId: film.filmId,
+    rating: film.rating,
+  };
 
-    const data = await rating.handleRating(filmData);
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
+  return apiRequest.handleRating(filmData);
 });
 
-export const getAverageRating = createAsyncThunk('getAverage', async filmId => {
-  try {
-    const result = await rating.getAverageRating(filmId);
-    return result;
-  } catch (error) {
-    console.error(error);
-  }
+export const getAverageRating = thunk('getAverage', async filmId => {
+  return apiRequest.getAverageRating(filmId);
 });

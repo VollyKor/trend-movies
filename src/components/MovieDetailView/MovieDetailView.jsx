@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Box } from '@material-ui/core';
 
+import AddToFavBtn from '../AddToFavBtn';
 import {
   MovieAdditionalInfo,
   GoBackButton,
@@ -11,18 +13,26 @@ import {
 } from 'components';
 
 import req from 'service/apiRequest';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFavMoviesList } from 'redux/favoriteMovies/favoriteMovies.actions';
+import RemoveFavMovieBtn from 'components/RemoveFavBtn';
 
 export default function MovieDetailView() {
-  const params = useParams();
-  const { slug } = params;
-
+  const dispatch = useDispatch();
   const [data, setData] = useState({});
   const [status, setStatus] = useState(null);
+  const { slug } = useParams();
+
+  const favMoviesList = useSelector(state => state.favMovies.list);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const isFavorite = useSelector(state =>
+    state.favMovies.favMovies.some(({ id }) => data.id === id),
+  );
 
   const idFromSLug = slug.match(/[0-9a-zA-Z]+$/)[0];
-
   useEffect(() => {
     setStatus('pending');
+    isLoggedIn && favMoviesList && dispatch(getFavMoviesList());
 
     req
       .getFilmById(idFromSLug)
@@ -34,7 +44,7 @@ export default function MovieDetailView() {
         console.error(err);
         setStatus('rejected');
       });
-  }, [idFromSLug]);
+  }, [dispatch, favMoviesList, idFromSLug, isLoggedIn]);
 
   switch (status) {
     case 'pending':
@@ -42,7 +52,15 @@ export default function MovieDetailView() {
     case 'resolved':
       return (
         <>
-          <GoBackButton />
+          <Box padding={1}>
+            <GoBackButton />
+            {isLoggedIn &&
+              (isFavorite ? (
+                <RemoveFavMovieBtn movie={data} />
+              ) : (
+                <AddToFavBtn movie={data} />
+              ))}
+          </Box>
           <MovieCard data={data} />
           <MovieAdditionalInfo filmData={data} />
         </>

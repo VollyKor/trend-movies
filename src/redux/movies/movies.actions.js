@@ -13,11 +13,14 @@ export const getTrendMovies = createAsyncThunk(
 );
 
 export const setPage = createAction('setPage');
+
 export const searchFilms = createAsyncThunk(
   'movies/getSearchFilms',
   async searchParams => {
     try {
       return await apiRequest.searchFilms(searchParams);
-    } catch (error) {}
+    } catch (error) {
+      throw error;
+    }
   },
 );

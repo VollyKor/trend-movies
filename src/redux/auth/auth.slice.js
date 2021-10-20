@@ -23,7 +23,6 @@ export const counterSlice = createSlice({
       .addCase(checkToken.fulfilled, (state, { payload }) => {
         state.token = localStorage.getItem('token');
         state.isLoggedIn = true;
-        console.log('payload', payload);
         state.user = payload;
       })
       .addCase(checkToken.rejected, (state, { payload }) => {

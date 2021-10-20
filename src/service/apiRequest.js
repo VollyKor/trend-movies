@@ -1,91 +1,155 @@
 import axios from 'axios';
 
-const apiRequest = {
-  API_KEY: process.env.REACT_APP_TMBD_KEY,
-  BASE_URL: 'https://api.themoviedb.org/3',
-  page: 1,
-  reviewPage: 1,
+class ApiRequest {
+  request;
+  token;
 
-  defaultPage() {
-    this.page = 1;
-  },
+  constructor() {
+    this.request = axios.create({ baseURL: process.env.REACT_APP_API_HOST });
+  }
 
-  setPage(pageValue) {
-    this.page = pageValue;
-  },
+  _setToken(token) {
+    this.request.defaults.headers.Authorization = `Bearer ${token}`;
+  }
+  _unsetToken() {
+    this.request.defaults.headers.Authorization = null;
+  }
 
-  async searchFilms(query) {
+  async signup(userCreds) {
     try {
-      const res = await axios.get(
-        `${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&query=${query}`,
-      );
-      const { data } = res;
+      const { data } = await this.request.post(`/users/signup`, userCreds);
+
+      if (data?.accessToken) this._setToken(data.accessToken);
       return data;
     } catch (error) {
       throw error;
     }
-  },
+  }
 
-  getFilmById(id) {
-    return axios
-      .get(`${this.BASE_URL}/movie/${id}?api_key=${this.API_KEY}`)
-      .then(({ data }) => {
-        return data;
-      })
+  async login(data) {
+    try {
+      const { data: resData } = await this.request.post(`/users/login`, data);
+
+      if (resData?.accessToken) this._setToken(resData.accessToken);
+      return resData;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async checkToken(token) {
+    try {
+      this._setToken(token);
+      return (await this.request.post(`/users/check-token`)).data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async searchFilms(query) {
+    try {
+      return (await this.request.get(`tmbd/search/movie?query=${query}`)).data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getFilmById(id) {
+    try {
+      return (await this.request.get(`/tmbd/movie/${id}`)).data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getTrendFilms(page = 1) {
+    try {
+      return (await this.request.get(`tmbd/trend-movies/${page}`)).data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getReview(id, page = 1) {
+    return this.request
+      .get(`tmbd/review/${id}/${page}`)
+      .then(({ data }) => data)
       .catch(err => {
         throw err;
       });
-  },
-
-  getTrendFilms(page = 1) {
-    return axios
-      .get(
-        `${this.BASE_URL}/trending/movie/day?api_key=${this.API_KEY}&page=${page}`,
-      )
-      .then(({ data }) => {
-        return data;
-      })
-      .catch(err => {
-        throw err;
-      });
-  },
-
-  getReview(id) {
-    return axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${this.API_KEY}&language=en-US&page=${this.reviewPage}`,
-      )
-      .then(({ data }) => {
-        return data;
-      })
-      .catch(err => {
-        throw err;
-      });
-  },
+  }
 
   getImgURL(size = 'original', url) {
     return `https://image.tmdb.org/t/p/${size}${url}`;
-  },
+  }
 
-  getApiConfig() {
-    return axios.get(
-      `https://api.themoviedb.org/3/configuration?api_key=${this.API_KEY}`,
-    );
-  },
+  async getMovieCredits(id) {
+    return this.request
+      .get(`/tmbd/movie-credits/${id}`)
+      .then(({ data }) => data)
+      .catch(err => {
+        throw err;
+      });
+  }
 
-  getMovieCredits(id) {
-    return axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${this.API_KEY}&language=en-US`,
-      )
-      .then(({ data }) => data);
-  },
+  async getApiGenresList() {
+    try {
+      return this.request.get(`/genre/movie/list?language=en-US`);
+    } catch (error) {
+      throw error;
+    }
+  }
 
-  getApiGenresList() {
-    return axios.get(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.API_KEY}&language=en-US`,
-    );
-  },
-};
+  async getAllRatingInfo() {
+    try {
+      return (await this.request.get('/rating')).data;
+    } catch (error) {
+      throw error;
+    }
+  }
 
-export default apiRequest;
+  async handleRating(data) {
+    try {
+      return (await this.request.post('/rating/handle', data)).data;
+    } catch (error) {
+      throw error;
+    }
+  }
+  async getAverageRating(filmId) {
+    try {
+      return (await this.request.get(`/rating/average/${filmId}`)).data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getFavMovies() {
+    try {
+      return (await this.request.get(`/favorite-movies`)).data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async addFavMovies(id) {
+    try {
+      return (
+        await this.request.post(`/favorite-movies/add`, {
+          movieId: id,
+        })
+      ).data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async removeFavMovies(id) {
+    try {
+      return (await this.request.delete(`/favorite-movies/remove/${id}`)).data;
+    } catch (error) {
+      throw error;
+    }
+  }
+}
+
+export default new ApiRequest();

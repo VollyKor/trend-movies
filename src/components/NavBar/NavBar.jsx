@@ -42,34 +42,25 @@ const NavBar = () => {
                 className={s.link}
                 activeClassName={s['active-link']}
               >
-                Home
-              </NavLink>
-            </li>
-
-            <li className={s.item}>
-              <NavLink
-                to="/movies"
-                className={s.link}
-                activeClassName={s['active-link']}
-              >
-                Movies
+                Trend Movies
               </NavLink>
             </li>
 
             {isLoggerIn && (
               <li className={s.item}>
                 <NavLink
-                  to="/table"
+                  to="/favMovies"
                   className={s.link}
                   activeClassName={s['active-link']}
                 >
-                  Table
+                  Chosen Movies
                 </NavLink>
               </li>
             )}
           </ul>
 
           <SearchForm />
+
           {isLoggerIn ? (
             <Button
               variant="contained"

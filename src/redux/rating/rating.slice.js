@@ -12,11 +12,9 @@ export const ratingSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(getAllRating.fulfilled, (state, { payload }) => {
-        console.log('getAllRating', payload);
         state.moviesArr = payload;
       })
       .addCase(getAverageRating.fulfilled, (state, { payload }) => {
-        console.log('getAverageRating', payload);
         return {
           averageRating: payload.averageRating,
           moviesArr: state.moviesArr,
@@ -24,8 +22,6 @@ export const ratingSlice = createSlice({
       })
       .addCase(handleRating.fulfilled, (state, { payload }) => {
         let newArr = state.moviesArr;
-        console.log('payload', payload);
-        console.log('newArr', newArr);
 
         const isExist = state.moviesArr.some(
           movie => movie.film_id === payload.film_id,

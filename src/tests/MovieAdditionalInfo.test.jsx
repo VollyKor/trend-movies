@@ -5,7 +5,7 @@ import { act, render, waitFor } from '@testing-library/react';
 import { rest } from 'msw';
 import server from 'mocks/server';
 
-import MovieAdditionalInfo from '../components/MovieAdditionalInfo/MovieAdditionalInfo';
+import MovieAdditionalInfo from '../componentss/MovieAdditionalInfo/MovieAdditionalInfo';
 
 import { filmResponse } from './mock/data';
 

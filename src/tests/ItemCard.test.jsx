@@ -1,6 +1,6 @@
 import empteImgURL from 'Images/imgPlaceholder.png';
 
-import ItemCard from 'components/ItemCard/ItemCard';
+import ItemCard from 'componentss/ItemCard/ItemCard';
 
 import renderWithRouter from './utils/routeWrapper';
 import { filmResponse } from './mock/data';

@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import renderWithRender from './utils/routeWrapper';
 
-import Container from 'components/Container';
+import Container from 'componentss/Container';
 
 describe('Test Container Component', () => {
   it('render Childrens', () => {

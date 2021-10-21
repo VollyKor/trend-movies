@@ -1,7 +1,7 @@
 import { screen, fireEvent } from '@testing-library/react';
 import renderWithRouter from './utils/routeWrapper';
 
-import SearchForm from 'components/SearchForm/SearchForm';
+import SearchForm from 'componentss/SearchForm/SearchForm';
 
 describe('Test search Form Component', () => {
   it('render snapshot', () => {

@@ -1,6 +1,6 @@
 import renderWithRouter from './utils/routeWrapper';
 
-import Review from 'components/Review/Review';
+import Review from 'componentss/Review/Review';
 
 import { dataObj, emptyDataObj } from './mock/data';
 

@@ -1,7 +1,7 @@
 import { Route, MemoryRouter } from 'react-router-dom';
 import { fireEvent, render } from '@testing-library/react';
 
-import GoBackButton from 'components/GoBackButton/GoBackButton';
+import GoBackButton from 'componentss/GoBackButton/GoBackButton';
 
 const customWrapper = (ui, { route = '/', path = '/', state = {} } = {}) => {
   window.history.pushState(state, 'Test page', `/`);

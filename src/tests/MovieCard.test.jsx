@@ -1,6 +1,6 @@
 import { fireEvent, screen } from '@testing-library/react';
 
-import MovieCard from 'components/MovieCard/MovieCard';
+import MovieCard from 'componentss/MovieCard/MovieCard';
 
 import renderWithRouter from './utils/routeWrapper';
 import empteImgURL from 'Images/imgPlaceholder.png';

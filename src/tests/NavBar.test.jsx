@@ -1,6 +1,6 @@
 import { screen, fireEvent } from '@testing-library/react';
 
-import NavBar from 'components/NavBar/NavBar';
+import NavBar from 'componentss/NavBar/NavBar';
 
 import renderWithRouter from './utils/routeWrapper';
 

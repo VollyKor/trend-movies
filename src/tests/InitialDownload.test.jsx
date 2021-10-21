@@ -1,6 +1,6 @@
 import logo from 'Images/logo.svg';
 
-import InitialDownload from 'componentss/InitialDownload/InitialDownload';
+import InitialDownload from 'components/InitialDownload/InitialDownload';
 
 import renderWithRouter from './utils/routeWrapper';
 

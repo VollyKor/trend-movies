@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react';
 import { Suspense } from 'react';
 import { rest } from 'msw';
 
-import App from 'componentss/App/App';
-import DownloadView from 'componentss/DownloadView/DownloadView';
+import App from 'components/App/App';
+import DownloadView from 'components/DownloadView/DownloadView';
 
 import { filmResponse, MoviesViewData } from './mock/data';
 import server from 'mocks/server';

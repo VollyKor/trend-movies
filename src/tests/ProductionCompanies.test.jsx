@@ -1,4 +1,4 @@
-import ProductionCompanies from 'componentss/ProductionCompanies/ProductionCompanies';
+import ProductionCompanies from 'components/ProductionCompanies/ProductionCompanies';
 
 import renderWithRouter from './utils/routeWrapper';
 import { productionCompanies } from './mock/data';

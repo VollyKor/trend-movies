@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import EmptyView from 'componentss/EmptyView';
+import EmptyView from 'components/EmptyView';
 
 import renderWithRender from './utils/routeWrapper';
 import emptyListPlaceholder from 'Images/EmptyListPlaceholder.jpg';

@@ -1,7 +1,7 @@
 import { waitFor, fireEvent, render } from '@testing-library/react';
 import { rest } from 'msw';
 
-import HomeView from 'componentss/HomeView/HomeView';
+import HomeView from 'components/HomeView/HomeView';
 
 import NotFoundImg from 'Images/404_page_cover.jpg';
 import renderWithRouter from './utils/routeWrapper';

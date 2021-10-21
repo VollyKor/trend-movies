@@ -1,7 +1,7 @@
 import { screen, fireEvent } from '@testing-library/react';
 import renderWithRender from './utils/routeWrapper';
 
-import ReviewItem from 'componentss/ReviewItem/ReviewItem';
+import ReviewItem from 'components/ReviewItem/ReviewItem';
 
 import { reviewObj } from './mock/data';
 

@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 
-import NotFoundView from 'componentss/NotFoundView/NotFoundView';
+import NotFoundView from 'components/NotFoundView/NotFoundView';
 
 import renderWithRouter from './utils/routeWrapper';
 

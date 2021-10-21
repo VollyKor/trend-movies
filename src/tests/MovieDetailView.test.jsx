@@ -2,7 +2,7 @@ import { render, waitFor } from '@testing-library/react';
 import { Route, MemoryRouter } from 'react-router-dom';
 import { rest } from 'msw';
 
-import MovieDetailView from 'componentss/MovieDetailView/MovieDetailView';
+import MovieDetailView from 'components/MovieDetailView/MovieDetailView';
 
 import server from 'mocks/server';
 import { filmResponse } from './mock/data';

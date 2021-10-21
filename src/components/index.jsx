@@ -15,5 +15,5 @@ export { default as Review } from './Review/Review';
 export { default as ReviewItem } from './ReviewItem/ReviewItem';
 export { default as SearchForm } from './SearchForm/SearchForm';
 export { default as Container } from './Container';
-export { default as EmptyView } from './EmptyView';
 export { default as ActorsList } from './ActorsList';
+export { default as EmptyView } from './EmptyView';

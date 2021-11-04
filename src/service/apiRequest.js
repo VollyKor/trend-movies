@@ -6,7 +6,7 @@ class ApiRequest {
 
   constructor() {
     this.request = axios.create({
-      baseURL: 'https://trend-movies.herokuapp.com/',
+      baseURL: 'http://18.185.220.242:3030',
     });
   }
 

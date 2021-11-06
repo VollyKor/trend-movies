@@ -1,0 +1,47 @@
+version: 0.2
+env:
+  variables:
+    PROJECT: 'tmb-front' #PROJECT NAME REQUIRED as ecr repository
+    STAGE: 'dev'
+phases:
+  install:
+    commands:
+      - echo 'install'
+  build:
+    commands:
+      #insert here your build commands
+      - echo 'build'
+      # get version var from script
+      - VERSION=$(bash scripts/versioning_aws)
+      - docker build -t ${PROJECT}:latest  .
+      # don't forget add AmazonEC2ContainerRegistryFullAccess
+      - aws ecr get-login-password --region eu-central-1 | docker login
+        --username AWS --password-stdin
+        865143743213.dkr.ecr.eu-central-1.amazonaws.com
+      - docker tag ${PROJECT}:latest
+        865143743213.dkr.ecr.eu-central-1.amazonaws.com/${PROJECT}:latest
+      - docker tag ${PROJECT}:latest
+        865143743213.dkr.ecr.eu-central-1.amazonaws.com/${PROJECT}:${VERSION}
+      - docker push --all-tags
+        865143743213.dkr.ecr.eu-central-1.amazonaws.com/${PROJECT}
+      - mkdir image
+      - ls image
+  post_build:
+    commands:
+      - ProjectFolder="${PROJECT}${Branch}"
+      - sed -i "s/:FOLDER:/${ProjectFolder}/g" ./appspec.yml
+      - sed -i "s/:FOLDER:/${ProjectFolder}/g" ./scripts/start_server
+      - sed -i "s/:FOLDER:/${ProjectFolder}/g" ./scripts/stop_server
+      - sed -i "s/:APPLICATION:/${ProjectFolder}/g" ./scripts/stop_server
+      - sed -i "s/:APPLICATION:/${ProjectFolder}/g" ./scripts/start_server
+      - sed -i "s/{{version}}/${VERSION}/g" ./docker-compose.yml
+      - cp appspec.yml image/
+      - cp -r scripts image/
+      - cp docker-compose*.yml image/
+      - ls image
+      - echo 'done'
+artifacts:
+  type: zip
+  files:
+    - '**/*'
+  base-directory: image

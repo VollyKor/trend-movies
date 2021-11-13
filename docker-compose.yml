@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   microservices:
-    image: '865143743213.dkr.ecr.eu-central-1.amazonaws.com/tmb:{{version}}'
+    image: '865143743213.dkr.ecr.eu-central-1.amazonaws.com/tmb-front:{{version}}'
     container_name: 'tmb-front'
     restart: unless-stopped
     env_file:

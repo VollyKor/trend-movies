@@ -18,7 +18,3 @@ services:
         awslogs-create-group: 'true'
         tag:
           '{{.Name}}_{{ with split .ImageName ":" }}{{index . 1}}{{end}}_{{.ID}}'
-  redis:
-    image: redis:alpine
-    command: redis-server --requirepass secret
-    ports: ['6379:6379']

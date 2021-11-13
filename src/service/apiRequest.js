@@ -6,7 +6,7 @@ class ApiRequest {
 
   constructor() {
     this.request = axios.create({
-      baseURL: 'http://18.185.220.242:3030',
+      baseURL: process.env.REACT_APP_API_HOST,
     });
   }
 

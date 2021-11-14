@@ -11,6 +11,7 @@ import App from './components/App/App';
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
+      {console.log('Backend host: ', process.env.REACT_APP_API_HOST)}
       <App />
     </Provider>
   </BrowserRouter>,

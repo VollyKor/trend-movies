@@ -11,7 +11,7 @@ export default function HomeView() {
 
   const dispatch = useDispatch();
   const movies = useSelector(({ movies }) => movies);
-  const { totalPages, trendMovies, page } = movies;
+  const { totalPages, trendMovies = [], page } = movies;
 
   useEffect(() => {
     setStatus('pending');

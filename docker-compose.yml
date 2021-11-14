@@ -8,13 +8,13 @@ services:
       - ../envs/tmb-front.env
     ports:
       - 3000:80
-    # extra_hosts:
-    #   - 'host.docker.internal:host-gateway'
-    # logging:
-    #   driver: awslogs
-    #   options:
-    #     awslogs-region: eu-central-1
-    #     awslogs-group: tmb-front
-    #     awslogs-create-group: 'true'
-    #     tag:
-    #       '{{.Name}}_{{ with split .ImageName ":" }}{{index . 1}}{{end}}_{{.ID}}'
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: eu-central-1
+        awslogs-group: tmb-front
+        awslogs-create-group: 'true'
+        tag:
+          '{{.Name}}_{{ with split .ImageName ":" }}{{index . 1}}{{end}}_{{.ID}}'

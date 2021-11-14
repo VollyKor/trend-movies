@@ -37,6 +37,7 @@ const App = () => {
   const movies = useSelector(getTM);
   const isLoggedIn = useSelector(getIsLoggedIn);
   const favMovies = useSelector(getFavMovies);
+
   const { search: searchQuery } = useLocation();
 
   useEffect(() => {
@@ -51,6 +52,9 @@ const App = () => {
       // @ts-ignore
       dispatch(searchFilms(query));
     }
+  }, [dispatch, searchQuery]);
+
+  useEffect(() => {
     if (isLoggedIn && !favMovies) dispatch(getFavMovies());
   }, [dispatch, favMovies, isLoggedIn, searchQuery]);
 
